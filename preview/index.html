@@ -1,0 +1,1284 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><title>See your AI front desk answer | Old Vine Studio</title><meta name="description" content="Type your business name and watch an AI receptionist answer a call as your business. Free preview from Old Vine Studio, Temecula."><link rel="canonical" href="https://oldvinefrontdesk.com/preview/"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%230E1726'/%3E%3Ccircle cx='12.5' cy='17' r='4' fill='%23F4B24A'/%3E%3Ccircle cx='19.5' cy='17' r='4' fill='%23F4B24A'/%3E%3Ccircle cx='16' cy='23.5' r='4' fill='%23F4B24A'/%3E%3C/svg%3E"><meta property="og:title" content="See your AI front desk answer | Old Vine Studio"><meta property="og:description" content="Type your business name and watch an AI receptionist answer a call as your business. Free preview from Old Vine Studio, Temecula."><meta property="og:url" content="https://oldvinefrontdesk.com/preview/"></head><body>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=JetBrains+Mono:wght@400;600&family=Public+Sans:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: one working column (1120px). Personalize bar on top, then the live demo as two panes (the call | your phone), then rules, morning digest, setup, price. Dark-first, same identity as the Old Vine Studio site. */
+:root{
+  --bg:#0E1726; --surface:#152238; --surface-2:#1C2C47; --line:#2A3C5B; --fg:#EEF1F6; --muted:#9EACC3;
+  --amber:#F4B24A; --on-amber:#1C1305; --glow:rgba(244,178,74,.20); --ok:#74D3A0; --warn:#F08A6B; --caller:#24365A; --sms:#2F5D50; --on-sms:#F4FBF7;
+  --display:"Bricolage Grotesque","Avenir Next","Segoe UI",system-ui,sans-serif;
+  --body:"Public Sans","Segoe UI",system-ui,-apple-system,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
+  --r:14px;
+  color-scheme:dark;
+}
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]){
+    --bg:#F1F4F8; --surface:#FFFFFF; --surface-2:#E8EDF4; --line:#D2DAE6; --fg:#13203A; --muted:#55627A;
+    --amber:#9A5600; --on-amber:#FFFFFF; --glow:rgba(226,140,20,.16); --ok:#1D7F4B; --warn:#B4401E; --caller:#DFE7F2; --sms:#2F5D50; --on-sms:#FFFFFF;
+    color-scheme:light;
+  }
+}
+:root[data-theme="light"]{
+  --bg:#F1F4F8; --surface:#FFFFFF; --surface-2:#E8EDF4; --line:#D2DAE6; --fg:#13203A; --muted:#55627A;
+  --amber:#9A5600; --on-amber:#FFFFFF; --glow:rgba(226,140,20,.16); --ok:#1D7F4B; --warn:#B4401E; --caller:#DFE7F2; --sms:#2F5D50; --on-sms:#FFFFFF;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{background:var(--bg);color:var(--fg);font:400 16px/1.6 var(--body);-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--bg)}
+:focus-visible{outline:2px solid var(--amber);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);line-height:1.06;letter-spacing:-.02em;margin:0;text-wrap:balance}
+h1{font-size:clamp(2rem,5vw,3.3rem);font-weight:800}
+h2{font-size:clamp(1.6rem,3.2vw,2.3rem);font-weight:800}
+h3{font-size:1.1rem;font-weight:600;letter-spacing:-.01em}
+p{margin:0}
+.eyebrow{font:600 .72rem/1.2 var(--mono);text-transform:uppercase;letter-spacing:.12em;color:var(--amber)}
+.muted{color:var(--muted)}
+.band{padding-block:56px}
+.band.alt{background:var(--surface);border-block:1px solid var(--line)}
+.head{display:grid;gap:10px;margin-bottom:28px;max-width:720px}
+
+/* header */
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;gap:14px;height:62px}
+.brand{display:flex;align-items:center;gap:10px;margin-right:auto;min-width:0}
+.brand b{font:800 1.15rem/1 var(--display);letter-spacing:-.02em;white-space:nowrap}
+.brand small{display:block;font:600 .62rem/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+.pill{font:600 .7rem/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:7px 10px;border-radius:999px;border:1px solid var(--line);color:var(--muted);white-space:nowrap}
+.icon-btn{width:38px;height:38px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--fg);display:grid;place-items:center;cursor:pointer;flex:none}
+
+/* hero + personalize */
+.hero{padding-block:44px 30px;display:grid;gap:22px}
+.hero .lede{color:var(--muted);font-size:1.06rem;max-width:62ch}
+.hero h1 .biz{color:var(--amber)}
+.setup{display:grid;grid-template-columns:1.5fr 1.7fr 1.1fr 1fr;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px}
+.field{display:grid;gap:6px;min-width:0}
+.field label{font:600 .7rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+input[type=text],input[type=number],select{width:100%;font:500 1rem/1.2 var(--body);color:var(--fg);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:11px 12px}
+input:focus,select:focus{border-color:var(--amber);outline:none;box-shadow:0 0 0 3px var(--glow)}
+.note{font-size:.86rem;color:var(--muted)}
+.field-other{grid-column:1 / -1;grid-template-columns:minmax(0,26rem) minmax(0,1fr);column-gap:16px;align-items:center}
+.field-other label{grid-column:1 / -1}
+.field-other .note{min-width:0;overflow-wrap:anywhere}
+.screened{font-size:.9rem;color:var(--muted);border:1px dashed var(--line);border-radius:12px;padding:10px 14px}
+
+/* demo */
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.chip{font:600 .9rem/1 var(--body);padding:10px 14px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--fg);cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--amber);color:var(--on-amber);border-color:var(--amber)}
+.chip.ghost{color:var(--muted)}
+.chip.ghost[aria-pressed="true"]{color:var(--on-amber)}
+.demo{display:grid;grid-template-columns:1.25fr 1fr;gap:18px;align-items:start}
+.pane{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);min-width:0}
+.pane-head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 16px;border-bottom:1px solid var(--line);font:600 .72rem/1.2 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.live{display:inline-flex;align-items:center;gap:8px}
+.live i{width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 0 var(--ok)}
+.playing .live i{animation:pulse 1.4s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--ok) 60%,transparent)}100%{box-shadow:0 0 0 9px transparent}}
+.thread{display:grid;gap:10px;padding:16px;min-height:330px;align-content:start}
+.msg{max-width:88%;padding:10px 13px;border-radius:14px;font-size:.96rem;line-height:1.45;animation:in .25s ease both}
+.msg .who{display:block;font:600 .62rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px;color:var(--muted)}
+.msg.ai{background:var(--surface-2);justify-self:start;border-top-left-radius:4px}
+.msg.ai .who{color:var(--amber)}
+.msg.caller{background:var(--caller);justify-self:end;border-top-right-radius:4px}
+@keyframes in{from{opacity:.0;transform:translateY(4px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion: reduce){.msg{animation:none}.playing .live i{animation:none}}
+.controls{display:flex;flex-wrap:wrap;gap:10px;padding:0 16px 16px;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:8px;font:600 .95rem/1 var(--body);padding:12px 18px;border-radius:999px;border:1px solid transparent;cursor:pointer;text-decoration:none}
+.btn-primary{background:var(--amber);color:var(--on-amber)}
+.btn-ghost{background:transparent;color:var(--fg);border-color:var(--line)}
+.btn-ghost:hover{border-color:var(--amber)}
+.toggle{display:inline-flex;align-items:center;gap:8px;font-size:.9rem;color:var(--muted);cursor:pointer}
+.toggle input{accent-color:var(--amber);width:18px;height:18px}
+
+/* phone */
+.phone{padding:16px;display:grid;gap:12px}
+.sms{background:var(--sms);color:var(--on-sms);border-radius:16px;border-bottom-left-radius:4px;padding:12px 14px;font-size:.95rem;line-height:1.45}
+.sms .from{display:block;font:600 .62rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;opacity:.75;margin-bottom:6px}
+.ticket{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;margin:0;font-size:.88rem;padding:12px 14px;border:1px dashed var(--line);border-radius:12px}
+.ticket dt{font:600 .66rem/1.7 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.ticket dd{margin:0;min-width:0}
+.prio{display:inline-block;font:600 .66rem/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:5px 8px;border-radius:999px;border:1px solid currentColor}
+.prio.Emergency,.prio.Urgent{color:var(--warn)} .prio.High{color:var(--amber)} .prio.Standard{color:var(--ok)} .prio.None{color:var(--muted)}
+.reply{display:grid;gap:8px}
+.reply-bubble{justify-self:end;max-width:92%;background:var(--surface-2);border-radius:16px;border-bottom-right-radius:4px;padding:11px 13px;font-size:.93rem}
+.reply-bubble .from{display:block;font:600 .62rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.waiting{font-size:.88rem;color:var(--muted);display:flex;gap:8px;align-items:center}
+.waiting b{color:var(--fg)}
+
+/* rules */
+.rules{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.rule{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px;display:grid;gap:10px;align-content:start;min-width:0}
+.rule-top{display:flex;align-items:flex-start;gap:12px}
+.switch{position:relative;flex:none;width:46px;height:26px}
+.switch input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer;z-index:1}
+.switch span{position:absolute;inset:0;border-radius:999px;background:var(--surface-2);border:1px solid var(--line);transition:background .15s}
+.switch span::after{content:"";position:absolute;top:3px;left:3px;width:18px;height:18px;border-radius:50%;background:var(--muted);transition:transform .15s,background .15s}
+.switch input:checked + span{background:var(--amber);border-color:var(--amber)}
+.switch input:checked + span::after{transform:translateX(20px);background:var(--on-amber)}
+.switch input:focus-visible + span{outline:2px solid var(--amber);outline-offset:3px}
+.rule h3{margin-bottom:3px}
+.says{font-size:.92rem;background:var(--bg);border-radius:10px;padding:10px 12px;border-left:3px solid var(--amber)}
+.says b{font:600 .62rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--amber);display:block;margin-bottom:4px}
+.fee{display:flex;align-items:center;gap:8px;font-size:.9rem;color:var(--muted)}
+.fee input{width:96px}
+
+/* digest */
+.mail{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.mail-head{padding:14px 18px;border-bottom:1px solid var(--line);display:grid;gap:4px;font-size:.9rem}
+.mail-head .subj{font:600 1.05rem/1.3 var(--display)}
+.mail-body{padding:18px;display:grid;gap:16px}
+.stats{display:flex;flex-wrap:wrap;gap:8px 18px;font:500 .85rem/1.4 var(--mono);color:var(--muted);font-variant-numeric:tabular-nums}
+.stats b{color:var(--fg)}
+.tbl{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:.9rem;min-width:560px}
+th{text-align:left;font:600 .66rem/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:8px 10px;border-bottom:1px solid var(--line)}
+td{padding:11px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+td.time{font-family:var(--mono);font-size:.82rem;color:var(--muted);white-space:nowrap}
+
+/* steps + price */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;counter-reset:s}
+.step{border-top:2px solid var(--amber);padding-top:12px;display:grid;gap:4px;counter-increment:s;min-width:0}
+.step::before{content:"Step " counter(s);font:600 .68rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--amber)}
+.step p{color:var(--muted);font-size:.93rem}
+.price{display:grid;grid-template-columns:1.1fr 1fr;gap:16px;align-items:stretch}
+.plan{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:20px;display:grid;gap:12px;align-content:start}
+.plan.feature{border-color:var(--amber);box-shadow:0 0 0 4px var(--glow)}
+.amt{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.amt strong{font:800 2.6rem/1 var(--display);letter-spacing:-.03em}
+ul.ticks{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+ul.ticks li{display:grid;grid-template-columns:16px 1fr;gap:10px;font-size:.95rem}
+ul.ticks li::before{content:"";width:8px;height:8px;margin-top:8px;border-radius:50%;background:var(--ok)}
+.addons{display:grid;gap:8px;font-size:.93rem}
+.addons div{display:flex;justify-content:space-between;gap:12px;border-bottom:1px dashed var(--line);padding-bottom:8px}
+.addons span:last-child{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+
+/* faq + cta */
+.faq{display:grid;gap:10px;max-width:820px}
+details{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+summary{cursor:pointer;font-weight:600}
+details p{margin-top:8px;color:var(--muted)}
+.cta{background:var(--surface);border:1px solid var(--amber);border-radius:18px;padding:24px;display:grid;grid-template-columns:1.4fr 1fr;gap:20px;align-items:center}
+.addr{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.addr code{font:600 1rem/1.3 var(--mono);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px 12px;user-select:all;word-break:break-all}
+footer{padding-block:28px 40px;color:var(--muted);font-size:.85rem;display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between}
+
+/* polish pass: tap targets, FAQ to match the site, cleaner phone layout */
+:root{--tick:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M4 10.5l4 4 8-9' fill='none' stroke='black' stroke-width='2.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
+.btn{min-height:48px;justify-content:center;line-height:1.15;text-align:center;transition:transform .15s ease,filter .15s ease}
+.btn-primary{box-shadow:0 12px 28px -16px var(--amber)}
+.btn-primary:hover{transform:translateY(-1px);filter:brightness(1.06)}
+@media (prefers-reduced-motion: reduce){.btn{transition:none}.btn-primary:hover{transform:none}}
+.chip{min-height:40px}
+.chip:hover{border-color:var(--amber)}
+.icon-btn{width:42px;height:42px}
+input[type=text],input[type=number],select{min-height:48px}
+.setup{padding:18px;gap:14px;border-radius:18px}
+.go{grid-column:1 / -1;display:flex}
+.go .btn{flex:0 1 auto}
+.pane{border-radius:18px;overflow:hidden}
+.toggle{display:grid;grid-template-columns:18px auto;column-gap:8px;align-items:center;min-height:44px}
+.toggle .note{grid-column:2;font-size:.8rem}
+.waiting{display:block}
+.waiting b{margin-inline:2px}
+.reply .btn{width:100%}
+.switch input{inset:-9px -4px;width:auto;height:auto}
+.plan .btn{justify-self:start;margin-top:4px}
+ul.ticks li::before{width:16px;height:16px;margin-top:3px;border-radius:0;background:var(--ok);-webkit-mask:var(--tick) center/contain no-repeat;mask:var(--tick) center/contain no-repeat}
+details{padding:0 18px;transition:border-color .15s ease}
+details[open]{border-color:color-mix(in srgb,var(--amber) 55%,var(--line))}
+summary{list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 0;min-height:44px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font:600 1.3rem/1 var(--mono);color:var(--amber)}
+details[open] summary::after{content:"\2013"}
+summary:hover{color:var(--amber)}
+details p{margin:0;padding:0 0 16px}
+.cta{border-radius:20px;background:linear-gradient(180deg,color-mix(in srgb,var(--amber) 8%,var(--surface)),var(--surface) 70%)}
+@media (max-width:900px){
+  .setup{grid-template-columns:1fr 1fr}
+  .demo,.price,.cta{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr 1fr}
+}
+@media (max-width:560px){
+  .rules,.steps,.field-other{grid-template-columns:1fr}
+  .setup{padding:14px;gap:12px}
+  .setup .field:nth-child(1),.setup .field:nth-child(2){grid-column:1 / -1}
+  .hero{padding-block:28px 24px;gap:18px}
+  .hero .lede{font-size:1rem;line-height:1.55}
+  .go .btn{flex:1 1 100%;min-height:52px}
+  .chip,.btn{min-height:44px}
+  .icon-btn{width:44px;height:44px}
+  .controls .btn{flex:1 1 100%}
+  .pill{display:none}
+  .thread{min-height:0}
+  .band{padding-block:44px}
+  .tbl table{min-width:0}
+  .tbl thead{display:none}
+  .tbl tr{display:grid;grid-template-columns:1fr 1fr;gap:6px 12px;padding:12px 0;border-bottom:1px solid var(--line)}
+  .tbl td{display:grid;gap:2px;padding:0;border:0}
+  .tbl td::before{content:attr(data-label);font:600 .6rem/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  .tbl td.req{grid-column:1 / -1;font-weight:600}
+  .tbl td.time{white-space:normal}
+}
+</style>
+
+<header class="top">
+  <div class="wrap nav">
+    <div class="brand">
+      <svg width="28" height="31" viewBox="20 30 160 175" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"><path d="M52 168 C 52 128, 92 118, 100 84 C 108 52, 80 38, 62 52"/><path d="M100 84 C 126 80, 140 100, 124 114 C 112 124, 98 114, 106 104"/></g><path d="M100 84 C 126 52, 160 54, 170 70 C 150 92, 122 98, 100 84 Z" fill="currentColor"/><g style="fill:var(--amber)"><circle cx="62" cy="166" r="10"/><circle cx="82" cy="170" r="10"/><circle cx="72" cy="187" r="10"/></g></svg>
+      <span><b>Old Vine Studio</b><small>AI Front Desk preview</small></span>
+    </div>
+    <span class="pill">Simulated preview</span>
+    <button class="icon-btn" id="themeBtn" type="button" aria-label="Switch light or dark">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+    </button>
+  </div>
+</header>
+
+<main>
+  <section class="wrap hero">
+    <p class="eyebrow">Built for home and local service businesses in the Temecula Valley</p>
+    <h1>See your front desk answer as <span class="biz" data-biz>Your Company</span>.</h1>
+    <p class="lede">Type your business name below. Every call, alert and report on this page updates to show exactly what you would get: the receptionist takes the job request, and you decide the time. It never books on its own. It works for home and local service businesses, from plumbing and HVAC to mobile detailing, landscaping, pool service and house cleaning.</p>
+    <form class="setup" id="setupForm" autocomplete="off">
+      <div class="field"><label for="bizName">Your business name</label><input type="text" id="bizName" maxlength="60" placeholder="e.g. Valley Air &amp; Heat"></div>
+      <div class="field"><label for="trade">Trade</label>
+        <select id="trade">
+          <optgroup label="Home repair">
+            <option value="hvac">HVAC / heating &amp; air</option><option value="plumbing">Plumbing</option><option value="electrical">Electrical</option><option value="garage">Garage door</option><option value="appliance">Appliance repair</option><option value="handyman">Handyman</option><option value="locksmith">Locksmith</option><option value="roofing">Roofing</option><option value="painting">Painting</option><option value="fencing">Fencing &amp; gates</option>
+          </optgroup>
+          <optgroup label="Outdoor &amp; property">
+            <option value="landscaping">Landscaping &amp; lawn care</option><option value="tree">Tree service</option><option value="pool">Pool &amp; spa service</option><option value="pressure">Pressure washing &amp; window cleaning</option><option value="solar">Solar panel cleaning</option><option value="pest">Pest control</option>
+          </optgroup>
+          <optgroup label="Cleaning &amp; hauling">
+            <option value="cleaning">House cleaning</option><option value="carpet">Carpet &amp; upholstery cleaning</option><option value="junk">Junk removal</option><option value="moving">Moving</option>
+          </optgroup>
+          <optgroup label="Auto &amp; mobile">
+            <option value="detailing">Mobile auto detailing</option><option value="mechanic">Mobile mechanic</option><option value="grooming">Mobile pet grooming</option>
+          </optgroup>
+          <optgroup label="Other">
+            <option value="other">Other (type what you do)</option>
+          </optgroup>
+        </select></div>
+      <div class="field"><label for="city">Main city</label>
+        <select id="city">
+          <option value="Temecula|92592">Temecula</option><option value="Murrieta|92563">Murrieta</option><option value="Menifee|92584">Menifee</option><option value="Lake Elsinore|92532">Lake Elsinore</option><option value="Wildomar|92595">Wildomar</option><option value="Canyon Lake|92587">Canyon Lake</option><option value="Winchester|92596">Winchester</option><option value="Hemet|92545">Hemet</option><option value="Fallbrook|92028">Fallbrook</option>
+        </select></div>
+      <div class="field"><label for="ownerName">Your first name</label><input type="text" id="ownerName" maxlength="30" placeholder="optional"></div>
+      <div class="field field-other" id="otherField" hidden><label for="otherWhat">What do you do?</label><input type="text" id="otherWhat" maxlength="40" placeholder="e.g. mobile notary, dog trainer"><p class="note" id="otherNote" aria-live="polite"></p></div>
+      <div class="go"><button class="btn btn-primary" id="heroPlay" type="button"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 1.5v11l9-5.5z" fill="currentColor"/></svg>Play a sample call</button></div>
+    </form>
+    <p class="note">Nothing you type leaves this page. This is a simulation; your real receptionist is written from your own services, prices, hours and rules.</p>
+  </section>
+
+  <section class="band alt" id="demo">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">1 · A call comes in while you're on a job</p>
+        <h2>Pick a call. Watch it answer, then see the alert on your phone.</h2>
+      </div>
+      <div class="chips" id="chips" role="group" aria-label="Choose a call"></div>
+      <div class="demo">
+        <div class="pane" id="callPane">
+          <div class="pane-head"><span class="live"><i></i><span id="callLabel">Incoming call</span></span><span id="callTime"></span></div>
+          <div class="thread" id="thread" aria-live="polite"></div>
+          <div class="controls">
+            <button class="btn btn-primary" id="playBtn" type="button">Play this call</button>
+            <label class="toggle" for="speak"><input type="checkbox" id="speak"> Read it aloud <span class="note">(browser voice, not the real one)</span></label>
+          </div>
+        </div>
+        <div class="pane">
+          <div class="pane-head"><span>Your phone</span><span>Alert · just now</span></div>
+          <div class="phone">
+            <div class="sms" id="smsBubble"><span class="from">Old Vine Front Desk</span><span id="smsText"></span></div>
+            <dl class="ticket" id="ticket"></dl>
+            <div class="reply" id="replyArea"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="rules">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">2 · Your rules, your schedule</p>
+        <h2>You set the rules. Flip one and the calls above change.</h2>
+        <p class="muted">Change any of these later with a one-line email. Each card shows what callers hear.</p>
+      </div>
+      <div class="rules">
+        <div class="rule">
+          <div class="rule-top"><span class="switch"><input type="checkbox" id="rWindows" aria-label="Offer time windows I open"><span></span></span>
+            <div><h3>Offer only the time windows I open</h3><p class="note">Off by default: every call becomes a request, and your team picks the time.</p></div></div>
+          <p class="says" id="saysWindows"></p>
+        </div>
+        <div class="rule">
+          <div class="rule-top"><span class="switch"><input type="checkbox" id="rTransfer" checked aria-label="Transfer emergencies"><span></span></span>
+            <div><h3>Send emergencies to my on-call phone</h3><p class="note">Otherwise you get an urgent alert and call them back yourself.</p></div></div>
+          <p class="says" id="saysTransfer"></p>
+        </div>
+        <div class="rule">
+          <div class="rule-top"><span class="switch"><input type="checkbox" id="rQuote" aria-label="Quote my service-call fee"><span></span></span>
+            <div><h3>Quote my service-call fee</h3><p class="note">It never quotes a job price. Only the numbers you approve.</p></div></div>
+          <div class="fee"><label for="feeAmt">Fee $</label><input type="number" id="feeAmt" min="0" max="999" step="1" value="89"></div>
+          <p class="says" id="saysQuote"></p>
+        </div>
+        <div class="rule">
+          <div class="rule-top"><span class="switch"><input type="checkbox" id="rSpanish" aria-label="Spanish line"><span></span></span>
+            <div><h3>Answer in Spanish too <span class="note">(add-on, $29/mo)</span></h3><p class="note">Callers can switch to Spanish at the greeting.</p></div></div>
+          <p class="says" id="saysSpanish"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band alt" id="digest">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">3 · Every morning</p>
+        <h2>One email with every call your team couldn't get to.</h2>
+        <p class="muted">Example numbers. Each request links to the caller's number and the full transcript.</p>
+      </div>
+      <div class="mail">
+        <div class="mail-head">
+          <span class="muted">From: Old Vine Front Desk · To: <span id="mailTo">you</span></span>
+          <span class="subj" id="mailSubj"></span>
+        </div>
+        <div class="mail-body">
+          <p id="mailHello"></p>
+          <div class="stats" id="mailStats"></div>
+          <div class="tbl"><table>
+            <thead><tr><th>Called</th><th>Request</th><th>Area</th><th>Priority</th><th>Preferred</th><th>Status</th></tr></thead>
+            <tbody id="mailRows"></tbody>
+          </table></div>
+          <p class="note">Nothing is on your calendar until your team confirms it with the customer.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="start">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">4 · Getting started</p>
+        <h2>Live in about a week, all by email.</h2>
+        <p class="muted">No meetings, no sales calls, no new phone number.</p>
+      </div>
+      <div class="steps">
+        <div class="step"><h3>Reply "start"</h3><p>We send 10 short questions about your services, area, hours and rules.</p></div>
+        <div class="step"><h3>We write and test it</h3><p>Script, FAQs and your rules, then 5 test calls: a job, a price question, an urgent call, an out-of-area caller and "are you a robot?"</p></div>
+        <div class="step"><h3>You hear it first</h3><p>Call it yourself and tell us what to change. Nothing goes live until you say so.</p></div>
+        <div class="step"><h3>Forward missed calls</h3><p>Busy and no-answer only, so your phone still rings first. Turn it off any time.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band alt" id="price">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">5 · Price</p>
+        <h2>Start for $99. Keep a founding rate for good.</h2>
+      </div>
+      <div class="price">
+        <div class="plan feature">
+          <p class="eyebrow">Founding plan · first 5 shops</p>
+          <div class="amt"><strong>$99</strong><span class="muted">first 30 days live, no setup fee</span></div>
+          <ul class="ticks">
+            <li><span>Receptionist written and tuned for <span data-biz>your company</span></span></li>
+            <li>Every job request sent to your phone, plus a morning summary</li>
+            <li>Spam &amp; sales calls screened out — robocalls, scam calls and sales pitches never turn into alerts on your phone. You only hear about real customers. Included free on every plan.</li>
+            <li>Tuned every week from real call transcripts</li>
+            <li>500 call minutes a month included, phone line and software too</li>
+            <li>Your 30 days start the day your line goes live</li>
+            <li>Then $149/mo, locked for as long as you stay. Cancel any time.</li>
+          </ul>
+          <p class="note">No separate software bill, and you keep your own business number. 500 minutes is about 150–250 calls; go over in a month and nothing is charged, you just get a heads-up. No contract.</p>
+          <a class="btn btn-primary" href="#contact">Claim a founding spot</a>
+        </div>
+        <div class="plan">
+          <p class="eyebrow">Optional add-on</p>
+          <div class="addons">
+            <div><span>Spanish line: callers can choose Spanish, your job requests still arrive in English</span><span>+$29/mo</span></div>
+          </div>
+          <p class="note">Add or drop it with one email. We never push upgrades.</p>
+          <p class="note">After the 5 founding spots: Standard is $299 setup + $199/mo with 500 minutes. Busy is $299/mo with 1,500 minutes for high call volume.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="faq">
+    <div class="wrap">
+      <div class="head"><p class="eyebrow">Questions owners ask</p><h2>The short answers.</h2></div>
+      <div class="faq">
+        <details><summary>Will it book jobs or promise times without me?</summary><p>No. By default it takes the request and the caller's preferred times, and your team confirms. If you turn on "offer windows I open", it only offers the windows you list, and you still approve each one.</p></details>
+        <details><summary>Will callers know it's AI?</summary><p>Yes. The greeting says it's your business's AI assistant and that the call is recorded. If anyone asks again, it tells them the same.</p></details>
+        <details><summary>Does it screen spam and sales calls?</summary><p>Yes, free on every plan. Robocalls, scam calls and sales pitches are ended politely and never become alerts on your phone; they only show up as a count in your morning summary. Screening applies to calls your receptionist answers (the calls you forward to it).</p></details>
+        <details><summary>What if it gets something wrong?</summary><p>You get the transcript of every call. Email us what to change and we update the script, usually the same day.</p></details>
+        <details><summary>Do I need a new phone number?</summary><p>No. You forward busy and no-answer calls from your current number, so you and your team still answer first.</p></details>
+        <details><summary>How do I cancel?</summary><p>Reply "cancel" to any email, or use the billing link in your Stripe receipt. Service runs to the end of the period you paid for, and you're not charged again. Turn off call forwarding and it's done; your business number stays yours.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap" id="contact" style="padding-block:8px 24px">
+    <div class="cta">
+      <div style="display:grid;gap:8px;min-width:0">
+        <h2>Want this answering for <span data-biz>your company</span>?</h2>
+        <p class="muted">Reply "start" to our email, or write to us. We answer within one business day, by email.</p>
+      </div>
+      <div class="addr">
+        <code id="emailAddr">OldVineStudio@gmail.com</code>
+        <button class="btn btn-ghost" id="copyBtn" type="button">Copy address</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <span>Old Vine Studio · Temecula, California · OldVineStudio@gmail.com</span>
+  <span>Calls and numbers on this page are examples.</span>
+</footer>
+
+<script>
+(function(){
+  var root = document.documentElement;
+  function store(k, v){ try{ if(v===undefined) return localStorage.getItem(k); localStorage.setItem(k, v); }catch(e){ return null; } }
+  var savedTheme = store("ovs-theme");
+  if(savedTheme === "light" || savedTheme === "dark") root.setAttribute("data-theme", savedTheme);
+  document.getElementById("themeBtn").addEventListener("click", function(){
+    var cur = root.getAttribute("data-theme") || (matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+    var next = cur === "dark" ? "light" : "dark";
+    root.setAttribute("data-theme", next); store("ovs-theme", next);
+  });
+
+  var $ = function(id){ return document.getElementById(id); };
+  var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------- state ---------- */
+  var S = { trade:"hvac", scenario:0 };
+  function biz(){ return $("bizName").value.trim() || "Your Company"; }
+  function cityZip(){ var v = $("city").value.split("|"); return { city:v[0], zip:v[1] }; }
+  function owner(){ return $("ownerName").value.trim(); }
+  function R(){ return { windows:$("rWindows").checked, transfer:$("rTransfer").checked, quote:$("rQuote").checked, fee:Math.max(0, Math.round(+$("feeAmt").value || 0)), spanish:$("rSpanish").checked }; }
+
+  /* ---------- rule-driven phrases ---------- */
+  function askTime(){ return R().windows ? "The team has openings Wednesday 8 to 10 am or Thursday 1 to 3 pm. Which would you prefer?" : "What day and time of day work best for you?"; }
+  function prefAnswer(def){ return R().windows ? "Wednesday morning works." : def; }
+  function prefTicket(def){ return R().windows ? "Wed 8–10 am (offered window)" : def; }
+  function prefLc(def){ var p = prefTicket(def); return /^(Mon|Tue|Wed|Thu|Fri|Sat|Sun)/.test(p) ? p : p.charAt(0).toLowerCase() + p.slice(1); }
+  function W(def){ return R().windows ? "Wednesday 8–10 am" : def; }
+  function closeLine(){ return R().windows ? "I've sent that window to the team. They'll text you shortly to confirm it." : "I've sent your request to the team. They'll text you shortly to confirm a time."; }
+  function cap(t){ return t ? t.charAt(0).toUpperCase() + t.slice(1) : t; }
+  function priceLine(job, tr){ var r = R(); tr = tr || {}; var pro = tr.pro || "the tech", fee = tr.fee || "service call"; return r.quote ? "Our " + fee + " is $" + r.fee + ", and " + pro + " gives you the full price for " + job + " before any work starts." : cap(pro) + " looks at it first and gives you the full price before any work starts, so there are no surprises."; }
+  function emergencyLine(onCall){ return R().transfer ? "I'm connecting you to " + (onCall || "our on-call tech") + " now. If the call drops, they'll call you right back at this number." : "I've marked this urgent and alerted the owner right now. They'll call you back as soon as they can."; }
+  function rushLine(){ return "I can't promise a time, but I've marked this as a priority request and sent it to " + (owner() || "the owner") + " now. They'll text you back shortly with what's possible."; }
+  /* Greeting: the one place every trade's AI disclosure and recording notice is worded. The owner is reviewing it, so change it only here. */
+  function poss(n){ return /s$/i.test(n) ? n + "'" : n + "'s"; }
+  function greet(extra){ var b = biz(); var g = "Thanks for calling " + b + ". This is " + poss(b) + " AI assistant. This call is recorded. " + (extra || "How can I help?"); if(R().spanish) g += " Para español, diga “español”."; return g; }
+
+  /* ---------- scenarios: [label, time, callerName, build()] ---------- */
+  function T(job, prio, pref, extra){ var t = { Job:job, Priority:prio, Preferred:pref, Area:cityZip().city + " " + cityZip().zip }; if(extra) t.Note = extra; return t; }
+  var SC = {
+    hvac:[
+      ["AC not cooling","Tue 9:47 pm","Maria",function(){ return { lines:[
+        ["ai",greet("You've reached the after-hours line. What's going on?")],
+        ["caller","Our AC stopped blowing cold. It's still 84 degrees in the house."],
+        ["ai","Sorry, that's rough. Is the outdoor unit running, and is anyone at home elderly or unwell?"],
+        ["caller","The fan outside is running. It's just me and my husband, we're okay."],
+        ["ai",askTime()],["caller",prefAnswer("Tomorrow morning, please.")],["ai",closeLine()]],
+        ticket:T("AC not cooling, house at 84°F","High",prefTicket("Tomorrow morning"),"Household okay"),
+        sms:"New job request from Maria: AC not cooling, " + cityZip().city + ". Prefers " + prefLc("tomorrow morning") + ". Household okay.",
+        reply:"Hi Maria, this is " + biz() + ". We can be there " + W("tomorrow between 8 and 10 am") + ". Does that work?" }; }],
+      ["No heat, elderly parent","Fri 11:20 pm","Dan",function(){ return { lines:[
+        ["ai",greet()],
+        ["caller","Our furnace won't turn on and my mom is staying with us. She's 82."],
+        ["ai","Thanks for telling me. If you smell gas, please leave the house and call the gas company or 911 first. Do you smell anything unusual?"],
+        ["caller","No, it just won't come on."],
+        ["ai",emergencyLine()]],
+        ticket:T("No heat, 82-year-old in home","Emergency",R().transfer?"Now (transferred to on-call)":"Call back ASAP","No gas smell"),
+        sms:(R().transfer?"EMERGENCY transferred: ":"URGENT, call back: ") + "no heat, 82-year-old in home, " + cityZip().city + ". No gas smell. Caller: Dan.",
+        reply:"Hi Dan, this is " + biz() + ". Our tech is on the way, about 45 minutes out. Keep your mom warm with blankets in one room until then." }; }],
+      ["Tune-up price","Mon 7:05 am","Priya",function(){ return { lines:[
+        ["ai",greet()],
+        ["caller","How much is a furnace tune-up before winter?"],
+        ["ai",priceLine("the tune-up")],
+        ["caller","Okay, let's do it."],
+        ["ai",askTime()],["caller",prefAnswer("Any weekday afternoon next week.")],["ai",closeLine()]],
+        ticket:T("Furnace tune-up","Standard",prefTicket("Weekday afternoon, next week")),
+        sms:"New job request from Priya: furnace tune-up, " + cityZip().city + ". Prefers " + prefLc("weekday afternoon next week") + "." + (R().quote ? " Quoted $" + R().fee + " service call." : ""),
+        reply:"Hi Priya, this is " + biz() + ". We have " + W("next Wednesday 1–3 pm") + " open for your tune-up. Want it?" }; }]
+    ],
+    plumbing:[
+      ["Water heater leaking","Sat 6:12 am","Tom",function(){ return { lines:[
+        ["ai",greet()],
+        ["caller","Water is pouring out from under our water heater in the garage."],
+        ["ai","Okay. If you can reach it safely, turn the cold-water valve on top of the heater clockwise to shut it off."],
+        ["caller","Done. It's slowing down."],
+        ["ai",emergencyLine()]],
+        ticket:T("Water heater leaking","Emergency",R().transfer?"Now (transferred to on-call)":"Call back ASAP","Cold supply shut off"),
+        sms:(R().transfer?"EMERGENCY transferred: ":"URGENT, call back: ") + "water heater leaking, " + cityZip().city + ". Caller shut off the cold supply. Caller: Tom.",
+        reply:"Hi Tom, this is " + biz() + ". On our way, about 40 minutes. Keep the valve closed and move anything you can off the wet floor." }; }],
+      ["Slow kitchen drain","Wed 1:40 pm","Linda",function(){ return { lines:[
+        ["ai",greet("Our plumbers are out on jobs, but I can help. What's going on?")],
+        ["caller","My kitchen sink has been draining really slowly for a week."],
+        ["ai","Got it. Is it backing up into the other side of the sink or the dishwasher?"],
+        ["caller","Just slow. No backup."],
+        ["ai",askTime()],["caller",prefAnswer("Friday morning if you have it.")],["ai",closeLine()]],
+        ticket:T("Slow kitchen drain, no backup","Standard",prefTicket("Friday morning")),
+        sms:"New job request from Linda: slow kitchen drain, no backup, " + cityZip().city + ". Prefers " + prefLc("Friday morning") + ".",
+        reply:"Hi Linda, this is " + biz() + ". We can come " + W("Friday 9–11 am") + " for the drain. Does that work?" }; }],
+      ["Price for a drain clearing","Thu 8:15 pm","Marcus",function(){ return { lines:[
+        ["ai",greet()],
+        ["caller","What do you charge to clear a main line? My tub and toilet are gurgling."],
+        ["ai",priceLine("the drain clearing")],
+        ["caller","Okay, can someone come out?"],
+        ["ai",askTime()],["caller",prefAnswer("Tomorrow, any time.")],["ai",closeLine()]],
+        ticket:T("Main line, tub and toilet gurgling","High",prefTicket("Tomorrow, any time")),
+        sms:"New job request from Marcus: possible main line clog, " + cityZip().city + ". Prefers " + prefLc("tomorrow, any time") + "." + (R().quote ? " Quoted $" + R().fee + " service call." : ""),
+        reply:"Hi Marcus, this is " + biz() + ". We can be there " + W("tomorrow 10 am–12 pm") + ". Please don't run the washer until then." }; }]
+    ],
+    electrical:[
+      ["EV charger estimate","Mon 12:30 pm","Ana",function(){ return { lines:[
+        ["ai",greet("Our electricians are out on jobs, but I can help. What do you need?")],
+        ["caller","We just bought an EV and need a charger installed. Do we need a panel upgrade?"],
+        ["ai","Sometimes. It depends on your panel and what's already on it. An electrician can check at an estimate visit. " + askTime()],
+        ["caller",prefAnswer("Thursday afternoon would be great.")],
+        ["ai",closeLine() + " If you can, text a photo of your panel's label to this number."]],
+        ticket:T("EV charger install, possible panel upgrade","Standard",prefTicket("Thursday afternoon"),"Panel photo requested"),
+        sms:"New estimate request from Ana: EV charger install, " + cityZip().city + ". Prefers " + prefLc("Thursday afternoon") + ". Asked for a panel photo.",
+        reply:"Hi Ana, this is " + biz() + ". " + (R().windows ? "Wednesday 8–10 am" : "Thursday 2–4 pm") + " works for your EV charger estimate. See you then?" }; }],
+      ["Burning smell at the panel","Sun 9:02 pm","Greg",function(){ return { lines:[
+        ["ai",greet()],
+        ["caller","There's a burning smell coming from our breaker panel."],
+        ["ai","If you see smoke or flames, leave the house and call 911 now. If not, and it's safe, switch off the main breaker. Is there any smoke?"],
+        ["caller","No smoke. I turned the main off."],
+        ["ai",emergencyLine()]],
+        ticket:T("Burning smell at panel, main off","Emergency",R().transfer?"Now (transferred to on-call)":"Call back ASAP","No smoke"),
+        sms:(R().transfer?"EMERGENCY transferred: ":"URGENT, call back: ") + "burning smell at panel, main breaker off, no smoke, " + cityZip().city + ". Caller: Greg.",
+        reply:"Hi Greg, this is " + biz() + ". Leave the main off. Our electrician is heading over now, about 50 minutes." }; }],
+      ["Outlet install price","Tue 4:45 pm","Jess",function(){ return { lines:[
+        ["ai",greet()],
+        ["caller","How much to add two outlets in my garage?"],
+        ["ai",priceLine("the outlets")],
+        ["caller","Sounds good."],
+        ["ai",askTime()],["caller",prefAnswer("Saturday morning if possible.")],["ai",closeLine()]],
+        ticket:T("Add 2 garage outlets","Standard",prefTicket("Saturday morning")),
+        sms:"New job request from Jess: add 2 garage outlets, " + cityZip().city + ". Prefers " + prefLc("Saturday morning") + "." + (R().quote ? " Quoted $" + R().fee + " service call." : ""),
+        reply:"Hi Jess, this is " + biz() + ". " + (R().windows ? "Wednesday 8–10 am works for the outlets. See you then?" : "We can't do Saturday, but Monday 8–10 am is open. Would that work?") }; }]
+    ],
+    garage:[
+      ["Broken spring, car stuck","Sun 4:05 pm","Rob",function(){ return { lines:[
+        ["ai",greet("What's going on with your door?")],
+        ["caller","There was a loud bang and now the door won't open. My car's stuck inside."],
+        ["ai","That sounds like a broken spring. Please don't lift the door by hand, it's very heavy without the spring. " + askTime()],
+        ["caller",prefAnswer("As soon as you can. Tomorrow morning if possible.")],
+        ["ai",closeLine()]],
+        ticket:T("Broken spring, car trapped","Urgent",prefTicket("Tomorrow morning")),
+        sms:"Urgent request from Rob: likely broken spring, car trapped, " + cityZip().city + ". Prefers " + prefLc("tomorrow morning") + ".",
+        reply:"Hi Rob, this is " + biz() + ". " + (R().windows ? "Wednesday 8–10 am is yours" : "First stop tomorrow, 7:30–8:30 am") + ". Please leave the door closed until we get there." }; }],
+      ["Door won't close","Wed 10:10 am","Kim",function(){ return { lines:[
+        ["ai",greet()],
+        ["caller","My garage door goes down and then pops back up."],
+        ["ai","That's often the safety sensors near the floor. Check that the two small lights face each other and nothing's blocking them. Want a tech to take a look?"],
+        ["caller","Yes please."],
+        ["ai",askTime()],["caller",prefAnswer("Thursday after 3.")],["ai",closeLine()]],
+        ticket:T("Door reverses when closing, likely sensors","Standard",prefTicket("Thursday after 3 pm")),
+        sms:"New job request from Kim: door reverses when closing, " + cityZip().city + ". Prefers " + prefLc("Thursday after 3 pm") + ".",
+        reply:"Hi Kim, this is " + biz() + ". " + (R().windows ? "Wednesday 8–10 am" : "Thursday 3–5 pm") + " works. If wiping the sensors fixes it first, just let us know." }; }],
+      ["New door estimate","Sat 11:30 am","Chris",function(){ return { lines:[
+        ["ai",greet()],
+        ["caller","What does a new two-car insulated door cost?"],
+        ["ai",R().quote ? "Our estimate visit is $" + R().fee + ", and the tech brings styles and gives you an exact price on site." : "It depends on the style and insulation. The tech measures and gives you an exact price at a free estimate."],
+        ["caller","Okay, let's set that up."],
+        ["ai",askTime()],["caller",prefAnswer("Weekday evening if you do those.")],["ai",closeLine()]],
+        ticket:T("New 2-car insulated door, estimate","Standard",prefTicket("Weekday evening")),
+        sms:"New estimate request from Chris: 2-car insulated door, " + cityZip().city + ". Prefers " + prefLc("weekday evening") + ".",
+        reply:"Hi Chris, this is " + biz() + ". We can do your estimate " + W("Tuesday at 5 pm") + ". Does that work?" }; }]
+    ],
+    pest:[
+      ["Rodents in the attic","Tue 7:20 pm","Erin",function(){ return { lines:[
+        ["ai",greet()],
+        ["caller","We hear scratching in the attic at night."],
+        ["ai","That's often rodents. Do you have pets or small kids at home? It helps the tech plan treatment."],
+        ["caller","One dog."],
+        ["ai",askTime()],["caller",prefAnswer("Thursday or Friday morning.")],["ai",closeLine()]],
+        ticket:T("Attic noises, likely rodents","Standard",prefTicket("Thu or Fri morning"),"1 dog on site"),
+        sms:"New inspection request from Erin: attic rodents, " + cityZip().city + ". Prefers " + prefLc("Thu or Fri morning") + ". One dog at home.",
+        reply:"Hi Erin, this is " + biz() + ". " + W("Friday 9–11 am") + " for the attic inspection. Please keep the dog inside while we're there." }; }],
+      ["Bees by the front door","Mon 2:55 pm","Joe",function(){ return { lines:[
+        ["ai",greet()],
+        ["caller","There's a swarm of bees right by our front door. My kids get home at 3:30."],
+        ["ai","Please keep everyone inside or use another door, and don't spray them. Is anyone allergic to stings?"],
+        ["caller","My son is."],
+        ["ai",emergencyLine()]],
+        ticket:T("Bee swarm at front door","Urgent",R().transfer?"Now (transferred to on-call)":"Call back ASAP","Child allergic to stings"),
+        sms:(R().transfer?"URGENT transferred: ":"URGENT, call back: ") + "bee swarm at front door, child allergic, " + cityZip().city + ". Caller: Joe.",
+        reply:"Hi Joe, this is " + biz() + ". Our tech can be there by 4. Have the kids use the garage door until then." }; }],
+      ["Monthly service price","Thu 9:30 am","Sam",function(){ return { lines:[
+        ["ai",greet()],
+        ["caller","Do you do monthly service for ants and spiders? What does it cost?"],
+        ["ai","We do. " + (R().quote ? "The first visit is $" + R().fee + ", and the tech goes over the ongoing plan and its price with you." : "The tech goes over the plan options and prices with you at the first visit.")],
+        ["caller","Great, sign me up."],
+        ["ai",askTime()],["caller",prefAnswer("Next Monday morning.")],["ai",closeLine()]],
+        ticket:T("Start general pest service","Standard",prefTicket("Next Monday morning")),
+        sms:"New job request from Sam: start general pest service, " + cityZip().city + ". Prefers " + prefLc("next Monday morning") + ".",
+        reply:"Hi Sam, this is " + biz() + ". " + W("Monday 8–10 am") + " is yours for the first service. See you then?" }; }]
+    ]
+  };
+  /* ---------- added trades: data-driven scripts ----------
+     Each trade: pro (who quotes), fee (what the approved fee is called), onCall (who emergencies go to),
+     robot [caller line, request] for the "Are you a robot?" chip, and s = 3 scenarios.
+     Kinds: job (everyday request), price (price question; never invents a price), urgent (safety: advice, then on-call),
+     rush (same-day or deadline request: flagged for the owner, never promises a time). */
+  var TR = {
+    detailing:{ pro:"the detailer", fee:"trip fee", onCall:"the owner", robot:["Oh, okay. I'd like to get my car detailed this week.","car detail"], s:[
+      { l:"Full detail at home", t:"Tue 6:40 pm", n:"Jordan", k:"job", open:"Our detailers are out on jobs, but I can help. What do you need?",
+        ask:"Can you come to my house and do a full detail, inside and out?",
+        q:"Happy to. What are you driving, and is there a hose and an outlet near where it's parked?",
+        a:"A midsize SUV. There's a hose and an outlet by the driveway.",
+        pref:"Saturday morning if you have it.", prefT:"Saturday morning",
+        job:"Full interior + exterior detail, midsize SUV", note:"Hose and outlet on site", sms:"full interior and exterior detail, midsize SUV, at home",
+        reply:"We can come {when:Saturday 8–11 am} for the full detail. Does that work?" },
+      { l:"Ceramic coating price", t:"Thu 12:15 pm", n:"Nina", k:"price",
+        ask:"How much is a ceramic coating on a sedan?", priceJob:"the coating",
+        priceNo:"It depends on the paint's condition and how much correction it needs, so the detailer looks at the car and gives you the exact price before starting.",
+        a:"Okay, I'd like someone to take a look.", pref:"Any afternoon next week.", prefT:"Afternoon, next week",
+        job:"Ceramic coating quote, sedan", sms:"ceramic coating quote, sedan",
+        reply:"We can look at the sedan {when:next Tuesday at 2 pm} and quote the coating on the spot. Does that work?" },
+      { l:"Same-day detail, selling the car", t:"Sat 8:05 am", n:"Alex", k:"rush",
+        ask:"I'm selling my truck and the buyer comes at 4 today. Any chance you can detail it before then?",
+        q:"Let me get the details to the owner. Is it mostly the inside, the outside, or both, and where is the truck parked?",
+        a:"Both, but the inside matters most. It's in my driveway.", prefT:"Today, before 4 pm",
+        job:"Same-day detail before a 4 pm sale, truck", note:"Interior is the priority", sms:"same-day detail before a 4 pm sale, truck in driveway", smsNote:"Interior matters most.",
+        reply:"We can be there by 11 and done well before 4. Want us to come?" }
+    ]},
+    landscaping:{ pro:"our crew lead", fee:"estimate visit", onCall:"our on-call crew", robot:["Oh, okay. I'd like to get some yard work done this week.","yard work"], s:[
+      { l:"Weekly mowing", t:"Mon 5:30 pm", n:"Rosa", k:"job",
+        ask:"Do you do weekly mowing? We just moved in and the lawn is getting long.",
+        q:"We do. Is it the front, the back, or both, and about how big is the lot?",
+        a:"Front and back, a regular-size lot.", pref:"Fridays would be ideal.", prefT:"Fridays",
+        job:"Weekly mowing, front + back, new customer", sms:"weekly mowing, front and back, new customer",
+        reply:"We can start {when:this Friday morning} and keep you on a weekly visit after that. Sound good?" },
+      { l:"Yard cleanup price", t:"Wed 9:10 am", n:"Derek", k:"price",
+        ask:"What would a full yard cleanup cost? It's overgrown, with weeds everywhere.", priceJob:"the cleanup",
+        priceNo:"It depends on the size and how much hauling there is, so our crew lead walks the yard and gives you a price before any work starts.",
+        a:"That's fair. Let's set up a walk-through.", pref:"Saturday morning works.", prefT:"Saturday morning",
+        job:"Overgrown yard cleanup, estimate", sms:"overgrown yard cleanup estimate",
+        reply:"We can walk the yard {when:Saturday at 9 am}. Does that work?" },
+      { l:"Sprinkler line flooding", t:"Sun 7:50 am", n:"Kevin", k:"urgent", prio:"Urgent",
+        ask:"A sprinkler line broke and water is shooting up and flooding the side yard.",
+        q:"Okay. If you can reach it safely, turn off the irrigation valve. It's usually by the backflow pipe near the house or in a box near the curb. Were you able to find it?",
+        a:"Got it. The water stopped.",
+        job:"Broken sprinkler main, side yard flooded", note:"Irrigation valve shut off", sms:"broken sprinkler main, side yard flooding", smsNote:"Caller shut off the irrigation valve.",
+        reply:"Thanks for shutting it off. We'll be there by 10 to repair the line." }
+    ]},
+    pool:{ pro:"the tech", fee:"service call", onCall:"our on-call tech", robot:["Oh, okay. I need someone to look at my pool this week.","pool visit"], s:[
+      { l:"Weekly pool service", t:"Tue 4:20 pm", n:"Melissa", k:"job",
+        ask:"We're looking for weekly pool service. Our last pool guy retired.",
+        q:"Glad to help. Is it a pool only, or a pool and spa, and is it salt or chlorine?",
+        a:"Pool and spa, saltwater.", pref:"Any weekday is fine.", prefT:"Any weekday",
+        job:"Weekly service, pool + spa, saltwater", sms:"weekly service, pool and spa, saltwater",
+        reply:"We can start {when:next Wednesday} and keep you on that day each week. Want the spot?" },
+      { l:"Green pool cleanup price", t:"Fri 10:45 am", n:"Victor", k:"price", prio:"High",
+        ask:"My pool turned green while we were away. What does a cleanup cost?", priceJob:"the cleanup",
+        priceNo:"It depends on how green it is and the size of the pool, so the tech checks it first and gives you the full price before any work starts.",
+        a:"Okay, can someone take a look?", pref:"As soon as you can, early next week.", prefT:"Early next week",
+        job:"Green pool cleanup", sms:"green pool cleanup",
+        reply:"We can come {when:Monday 9–11 am} to test the water and get started. Does that work?" },
+      { l:"Pump stopped, party Saturday", t:"Thu 6:30 pm", n:"Brianna", k:"rush",
+        ask:"Our pool pump stopped and it's making a grinding noise. We have a party here Saturday.",
+        q:"If it's still noisy, smoking or hot to the touch, please switch the pump off at the timer or breaker for now. Is it off?",
+        a:"Yes, I turned it off at the timer.", prefT:"Before Saturday's party",
+        job:"Pump stopped with grinding noise", note:"Pump switched off; party Saturday", sms:"pump stopped with a grinding noise, party Saturday", smsNote:"Caller turned the pump off.",
+        reply:"Thanks for turning it off. Our tech can come tomorrow morning to look at the pump." }
+    ]},
+    cleaning:{ pro:"the team", fee:"estimate visit", onCall:"the owner", robot:["Oh, okay. I'd like to get my house cleaned this week.","house cleaning"], s:[
+      { l:"Every-other-week cleaning", t:"Mon 1:15 pm", n:"Hannah", k:"job",
+        ask:"I'm looking for someone to clean every other week. Three bedrooms, two baths.",
+        q:"We'd be glad to. Any pets, and is there anywhere you'd like extra attention?",
+        a:"One cat. The kitchen and bathrooms matter most.", pref:"Thursdays would be great.", prefT:"Thursdays",
+        job:"Biweekly clean, 3 bed / 2 bath", note:"1 cat; focus on kitchen + baths", sms:"biweekly cleaning, 3 bed 2 bath", smsNote:"One cat, kitchen and baths first.",
+        reply:"We can start {when:Thursday 9 am–12 pm} and come every other week after that. Does that work?" },
+      { l:"Move-out clean price", t:"Wed 7:40 pm", n:"Omar", k:"price", prio:"High",
+        ask:"What do you charge for a move-out clean? We hand back the keys on the 30th.", priceJob:"the move-out clean",
+        priceNo:"It depends on the size of the home and what's included, so the team confirms an exact price with you before anything is scheduled.",
+        a:"Okay. Can I get on the list?", pref:"The 28th or 29th.", prefT:"The 28th or 29th",
+        job:"Move-out clean, keys due the 30th", sms:"move-out clean, keys due on the 30th",
+        reply:"We can do the move-out clean {when:on the 29th, 9 am–1 pm}. Does that work?" },
+      { l:"Guests arrive tomorrow", t:"Tue 5:10 pm", n:"Grace", k:"rush",
+        ask:"We have family flying in tomorrow afternoon. Is there any way someone could clean tomorrow morning?",
+        q:"Let me get the details to the owner. Is it the whole house, or just the main areas?",
+        a:"Just the kitchen, the living room and the guest bath.", prefT:"Tomorrow morning",
+        job:"Next-day clean before guests: kitchen, living room, guest bath", sms:"next-day clean before guests, kitchen, living room and guest bath",
+        reply:"We can send a crew tomorrow 8–11 am for those three areas. Want it?" }
+    ]},
+    handyman:{ pro:"the handyman", fee:"service call", onCall:"our on-call handyman", robot:["Oh, okay. I have a few things around the house that need fixing this week.","small repairs"], s:[
+      { l:"Mount TV + fix a door", t:"Sat 10:20 am", n:"Luis", k:"job",
+        ask:"I need a TV mounted, and a closet door that keeps coming off its track fixed.",
+        q:"Can do. How big is the TV, and what kind of wall is it going on?",
+        a:"It's a 65-inch, on regular drywall. I already have the mount.", pref:"Next Saturday morning.", prefT:"Next Saturday morning",
+        job:"Mount 65-inch TV + fix closet door track", note:"Customer has the mount", sms:"mount a 65-inch TV and fix a closet door",
+        reply:"We can do both {when:next Saturday 9–11 am}. Does that work?" },
+      { l:"Hourly price for small jobs", t:"Tue 3:05 pm", n:"Diane", k:"price",
+        ask:"Do you charge by the hour? I have a list of small things: a loose railing, two outlet covers and caulking the tub.", priceJob:"your list",
+        priceNo:"It depends on the list, so the handyman looks it over and gives you a price before any work starts. Photos ahead of time help.",
+        a:"Okay, I'll send photos. Let's set a time.", pref:"Weekday mornings.", prefT:"Weekday mornings",
+        job:"Small-jobs list: railing, outlet covers, tub caulk", sms:"small-jobs list (railing, outlet covers, tub caulk)",
+        reply:"We can work through the list {when:Thursday 9 am–12 pm}. Send the photos when you can." },
+      { l:"Leak under the sink tonight", t:"Wed 8:40 pm", n:"Ray", k:"urgent", prio:"Urgent",
+        ask:"Water is leaking under my bathroom sink and I can't get it to stop.",
+        q:"Okay. Look under the sink for the small valve on the water line and turn it clockwise until it stops. Is the leak slowing down?",
+        a:"Yes, it stopped.",
+        job:"Leak under bathroom sink", note:"Shutoff valve closed", sms:"leak under the bathroom sink", smsNote:"Caller closed the shutoff valve.",
+        reply:"Good job closing the valve. We can come first thing tomorrow, 8–9 am, to fix it." }
+    ]},
+    roofing:{ pro:"the roofer", fee:"inspection fee", onCall:"our on-call crew", robot:["Oh, okay. I need someone to look at my roof this week.","roof check"], s:[
+      { l:"Roof inspection", t:"Thu 2:30 pm", n:"Patricia", k:"job",
+        ask:"We're buying a house and want the roof inspected before we close.",
+        q:"Of course. Is it tile or shingle, and do you know roughly how old the roof is?",
+        a:"Tile. The listing says about 20 years.", pref:"Sometime before next Friday.", prefT:"Before next Friday",
+        job:"Pre-purchase roof inspection, tile, about 20 yrs", sms:"pre-purchase roof inspection, tile roof about 20 years old",
+        reply:"We can inspect it {when:Tuesday at 10 am}. Does that work?" },
+      { l:"Repair or replace price", t:"Mon 11:00 am", n:"Steve", k:"price",
+        ask:"Some shingles blew off. Roughly what does a repair cost compared with a new roof?", priceJob:"the repair",
+        priceNo:"It depends on what the roofer finds up there, so they inspect it first and give you prices for both options before any work starts.",
+        a:"Okay, let's get someone up there.", pref:"Later this week.", prefT:"Later this week",
+        job:"Missing shingles, repair vs. replace quote", sms:"missing shingles, wants a repair vs. replace quote",
+        reply:"We can be up there {when:Thursday 1–3 pm} and quote both options. Does that work?" },
+      { l:"Active leak in the storm", t:"Sat 9:15 pm", n:"Carmen", k:"urgent", prio:"Emergency",
+        ask:"Water is dripping through our ceiling during this storm.",
+        q:"Okay. Move anything valuable out of the way and put a bucket under the drip. If the ceiling is sagging, stay out of that room and don't go into the attic. Is it sagging?",
+        a:"No, it's just a steady drip into the bucket.",
+        job:"Active roof leak in storm", note:"Ceiling not sagging, bucket in place", sms:"active roof leak in the storm, ceiling dripping", smsNote:"Not sagging, bucket in place.",
+        reply:"We'll come tarp it first thing in the morning, once it's safe to get on the roof. Keep the bucket there tonight." }
+    ]},
+    painting:{ pro:"the painter", fee:"estimate visit", onCall:"the owner", robot:["Oh, okay. I'd like a painting estimate this week.","painting estimate"], s:[
+      { l:"Paint three rooms", t:"Wed 6:15 pm", n:"Megan", k:"job",
+        ask:"I'd like three bedrooms painted. Just the walls, not the ceilings.",
+        q:"Sounds good. Have you picked colors, and will the furniture stay in the rooms?",
+        a:"Colors are picked, and we can move most of the furniture out.", pref:"Sometime in the next two weeks.", prefT:"Next two weeks",
+        job:"Interior paint, 3 bedrooms, walls only", note:"Colors chosen", sms:"interior paint, 3 bedrooms, walls only", smsNote:"Colors already chosen.",
+        reply:"We can come measure {when:Monday at 4 pm} and get you on the schedule. Does that work?" },
+      { l:"Exterior paint price", t:"Sat 9:50 am", n:"Frank", k:"price",
+        ask:"How much to paint the outside of a one-story stucco house?", priceJob:"the exterior",
+        priceNo:"It depends on the size, the stucco's condition and the prep it needs, so the painter walks the house and gives you a written price before any work starts.",
+        a:"Okay, let's set up the walk-around.", pref:"A weekday evening.", prefT:"Weekday evening",
+        job:"Exterior paint quote, 1-story stucco", sms:"exterior paint quote, one-story stucco",
+        reply:"We can walk the house {when:Tuesday at 5 pm}. Does that work?" },
+      { l:"Rental turnover by Friday", t:"Mon 8:20 am", n:"Dave", k:"rush",
+        ask:"My tenant moved out and the new one moves in Saturday. Can you repaint a two-bedroom by Friday?",
+        q:"Let me get the details to the owner. Is it the same colors, and is the unit empty?",
+        a:"Same white everywhere, and it's empty.", prefT:"Finished by Friday",
+        job:"Rental turnover repaint, 2-bedroom", note:"Unit empty, same white", sms:"rental turnover repaint, 2-bedroom, needed by Friday", smsNote:"Unit is empty, same white.",
+        reply:"We can start Wednesday and finish Thursday. Can you leave a key in a lockbox?" }
+    ]},
+    pressure:{ pro:"the crew", fee:"estimate visit", onCall:"the owner", robot:["Oh, okay. I'd like to get my driveway and windows cleaned this week.","driveway and window cleaning"], s:[
+      { l:"Driveway + house wash", t:"Fri 3:40 pm", n:"Tina", k:"job",
+        ask:"Can you pressure wash our driveway and soft wash the house?",
+        q:"Yes. Is the house stucco or siding, and is there an outside spigot we can use?",
+        a:"Stucco, and the spigot is by the garage.", pref:"Saturday morning.", prefT:"Saturday morning",
+        job:"Driveway pressure wash + house soft wash, stucco", sms:"driveway wash and house soft wash, stucco",
+        reply:"We can do both {when:Saturday 8–11 am}. Does that work?" },
+      { l:"Window cleaning price", t:"Tue 10:30 am", n:"Ken", k:"price",
+        ask:"What do you charge for window cleaning, inside and out? It's a two-story.", priceJob:"the windows",
+        priceNo:"It depends on how many windows and screens there are, so the crew counts them and gives you the exact price before starting.",
+        a:"Okay, let's schedule it.", pref:"Any weekday afternoon.", prefT:"Weekday afternoon",
+        job:"Window cleaning, inside + out, 2-story", sms:"window cleaning inside and out, two-story",
+        reply:"We can come {when:Thursday 1–4 pm} for the windows. Does that work?" },
+      { l:"HOA notice deadline", t:"Wed 4:55 pm", n:"Lori", k:"rush", prio:"High",
+        ask:"Our HOA sent a notice. The driveway and walkway have to be cleaned by the 15th or we get fined.",
+        q:"Got it. Is it just the driveway and walkway, or the house too?",
+        a:"Just the driveway and the front walkway.", prefT:"Before the 15th (HOA deadline)",
+        job:"Driveway + walkway clean, HOA deadline", sms:"driveway and walkway clean, HOA deadline on the 15th",
+        reply:"We can get it done Monday morning, well before the 15th. Want the spot?" }
+    ]},
+    locksmith:{ pro:"the locksmith", fee:"service call", onCall:"our on-call locksmith", robot:["Oh, okay. I need some lock work done at my house this week.","lock work"], s:[
+      { l:"Rekey after move-in", t:"Sun 12:40 pm", n:"Ben", k:"job",
+        ask:"We just bought a house and want all the locks rekeyed.",
+        q:"Smart move. How many doors, and would you like one key for all of them?",
+        a:"Front, back and the garage entry. One key would be great.", pref:"Any afternoon this week.", prefT:"Afternoon this week",
+        job:"Rekey 3 doors to one key, new homeowner", sms:"rekey 3 doors to one key",
+        reply:"We can rekey all three {when:Wednesday 2–4 pm}. Does that work?" },
+      { l:"Lock change price", t:"Thu 7:25 pm", n:"Sofia", k:"price",
+        ask:"How much to replace my front door deadbolt with a smart lock?", priceJob:"the install",
+        priceNo:"It depends on the lock and the door, so the locksmith checks the door and gives you the full price before any work starts.",
+        a:"Okay, I'd like to set that up.", pref:"Saturday morning.", prefT:"Saturday morning",
+        job:"Replace front deadbolt with a smart lock", sms:"replace the front deadbolt with a smart lock",
+        reply:"We can install it {when:Saturday 9–11 am}. Do you already have the lock?" },
+      { l:"Locked out, child in car", t:"Tue 3:30 pm", n:"Amy", k:"urgent", prio:"Emergency",
+        ask:"I locked my keys in the car and my toddler is buckled in the back seat.",
+        q:"If it's hot out, or your child seems upset or unwell, hang up and call 911 right now. They can get in faster. How is your child doing?",
+        a:"She's okay. It's cool out and I'm right by the window.",
+        job:"Locked out, toddler inside the car", note:"Child okay, cool weather; told to call 911 if that changes", sms:"locked out, toddler inside the car", smsNote:"Child okay, cool weather. Told to call 911 if that changes.",
+        reply:"On our way, about 15 minutes out. Call 911 right away if anything changes." }
+    ]},
+    appliance:{ pro:"the tech", fee:"service call", onCall:"the owner", robot:["Oh, okay. One of my appliances needs a repair this week.","appliance repair"], s:[
+      { l:"Dryer not heating", t:"Mon 9:20 am", n:"Gloria", k:"job",
+        ask:"My dryer runs, but it's not getting hot.",
+        q:"Thanks. Is it gas or electric, and about how old is it?",
+        a:"Electric, about eight years old.", pref:"Wednesday or Thursday.", prefT:"Wed or Thu",
+        job:"Electric dryer not heating, about 8 yrs old", sms:"electric dryer not heating",
+        reply:"We can come {when:Thursday 10 am–12 pm} for the dryer. Does that work?" },
+      { l:"Service-call fee", t:"Fri 2:10 pm", n:"Tony", k:"price",
+        ask:"What's your service-call fee? My dishwasher isn't draining.", priceJob:"the repair",
+        priceNo:"The tech diagnoses it first and gives you the full price for the repair before any work starts, so there are no surprises.",
+        a:"Okay, let's set it up.", pref:"Monday morning.", prefT:"Monday morning",
+        job:"Dishwasher not draining", sms:"dishwasher not draining",
+        reply:"We can be there {when:Monday 8–10 am}. Does that work?" },
+      { l:"Fridge died, food spoiling", t:"Sat 11:45 am", n:"Nadia", k:"rush",
+        ask:"Our fridge stopped cooling overnight and everything is getting warm.",
+        q:"I'm sorry. A cooler with ice will buy you some time. Is the freezer side still cold?",
+        a:"The freezer is still kind of cold. The fridge side is warm.", prefT:"Today if possible",
+        job:"Fridge not cooling, food at risk", note:"Freezer still partly cold", sms:"fridge stopped cooling, food at risk", smsNote:"Freezer side still somewhat cold.",
+        reply:"We can fit you in today between 2 and 4 pm. Does that work?" }
+    ]},
+    mechanic:{ pro:"the mechanic", fee:"diagnostic visit", onCall:"the owner", robot:["Oh, okay. I need someone to look at my car this week.","car repair"], s:[
+      { l:"Brakes at home", t:"Tue 5:45 pm", n:"Marco", k:"job",
+        ask:"My brakes are squealing. Can you replace the pads at my house?",
+        q:"Yes, we come to you. What's the year, make and model, and is it the front, the back, or both?",
+        a:"A 2017 Civic, mostly the front.", pref:"Saturday morning, in my driveway.", prefT:"Saturday morning",
+        job:"Front brake pads, 2017 Civic, at home", sms:"front brake pads, 2017 Civic, at home",
+        reply:"We can do the brakes in your driveway {when:Saturday 9–11 am}. Does that work?" },
+      { l:"Diagnostic price", t:"Thu 8:00 am", n:"Kelly", k:"price",
+        ask:"My check engine light is on. What do you charge to diagnose it?", priceJob:"any repair",
+        priceNo:"The mechanic scans it first and gives you the full price for any repair before any work starts, so there are no surprises.",
+        a:"Okay, let's set it up.", pref:"Tomorrow at lunch, at my office.", prefT:"Tomorrow at lunch",
+        job:"Check engine light diagnostic", sms:"check engine light diagnostic",
+        reply:"We can meet you {when:tomorrow 12–1 pm} for the scan. Send the address when you can." },
+      { l:"Won't start, need it for work", t:"Wed 6:10 am", n:"Andre", k:"rush",
+        ask:"My car won't start and I need it to get to work.",
+        q:"Are you at home, or on the side of the road? If you're on the roadside, turn on your hazards and wait somewhere safe, and call 911 if you ever feel unsafe.",
+        a:"I'm at home in the driveway. It just clicks.", prefT:"This morning if possible",
+        job:"No-start, clicking, at home", note:"Safe at home", sms:"car won't start, just clicks, at home", smsNote:"Needs it for work.",
+        reply:"Sounds like the battery. We can be there by 8:30 with one. Does that work?" }
+    ]},
+    tree:{ pro:"our estimator", fee:"estimate visit", onCall:"our on-call crew", robot:["Oh, okay. I need someone to look at a tree this week.","tree work"], s:[
+      { l:"Tree trimming", t:"Mon 10:40 am", n:"Janet", k:"job",
+        ask:"We have two big pepper trees in the back that need trimming.",
+        q:"Sure. Are any branches near the house, the roof or power lines?",
+        a:"One hangs over the roof a little. Nothing near the lines.", pref:"Any day next week.", prefT:"Any day next week",
+        job:"Trim 2 pepper trees, one over the roof", sms:"trim 2 pepper trees, one over the roof",
+        reply:"We can come look {when:Tuesday at 9 am} and give you a price. Does that work?" },
+      { l:"Tree removal price", t:"Thu 4:30 pm", n:"Walt", k:"price",
+        ask:"How much to take out a dead pine and grind the stump?", priceJob:"the removal",
+        priceNo:"It depends on the height and what's around it, so our estimator looks at it first and gives you the full price before any work starts.",
+        a:"Okay, let's get it looked at.", pref:"A weekday morning.", prefT:"Weekday morning",
+        job:"Dead pine removal + stump grinding", sms:"dead pine removal and stump grinding",
+        reply:"We can come look at the pine {when:Wednesday 8–10 am}. Does that work?" },
+      { l:"Tree fell on the fence", t:"Sun 6:55 am", n:"Lisa", k:"urgent", prio:"Emergency",
+        ask:"The wind knocked a big tree onto our fence and part of the roof.",
+        q:"Is anyone hurt, and are any power lines down or touching the tree? If so, stay far away and call 911 or SCE right now.",
+        a:"No one's hurt and the lines look clear. It's on the fence and the edge of the roof.",
+        job:"Tree down on fence and edge of roof", note:"No injuries, power lines clear", sms:"tree down on the fence and edge of the roof", smsNote:"No injuries, lines look clear.",
+        reply:"We'll be there by 9 to secure it and check the roof." }
+    ]},
+    carpet:{ pro:"the tech", fee:"service call", onCall:"the owner", robot:["Oh, okay. I'd like to get my carpets cleaned this week.","carpet cleaning"], s:[
+      { l:"Whole-house carpets", t:"Tue 11:15 am", n:"Paula", k:"job",
+        ask:"I'd like all the carpets in the house cleaned. It's four bedrooms and the stairs.",
+        q:"Happy to. Are there any pet stains or spots we should know about?",
+        a:"A few spots in the hallway from the dog.", pref:"Friday, any time.", prefT:"Friday, any time",
+        job:"Whole-house carpets, 4 bedrooms + stairs", note:"Pet spots in hallway", sms:"whole-house carpets, 4 bedrooms plus stairs", smsNote:"Pet spots in the hallway.",
+        reply:"We can come {when:Friday 9 am–12 pm}. Does that work?" },
+      { l:"Price per room", t:"Sat 2:20 pm", n:"Eddie", k:"price",
+        ask:"What do you charge per room? I also have a sectional couch.", priceJob:"the rooms and the sectional",
+        priceNo:"It depends on the room sizes and the couch fabric, so the tech confirms the exact price with you before starting.",
+        a:"Okay, let's set it up.", pref:"A weekday after 3.", prefT:"Weekday after 3 pm",
+        job:"Carpet rooms + sectional upholstery", sms:"carpet rooms plus a sectional",
+        reply:"We can do the rooms and the sectional {when:Tuesday 3–5 pm}. Does that work?" },
+      { l:"Flood water in the carpet", t:"Mon 7:35 am", n:"Rachel", k:"rush",
+        ask:"Our washing machine overflowed and the bedroom carpet is soaked.",
+        q:"Water that sits can lead to mold, so I'll get this to the owner fast. Is the washer turned off, and has the water stopped spreading?",
+        a:"It's off now, and the water's not spreading.", prefT:"Today if possible",
+        job:"Soaked bedroom carpet, washer overflow", note:"Washer off, not spreading", sms:"washer overflow, bedroom carpet soaked", smsNote:"Washer off, not spreading.",
+        reply:"We can be there by noon to extract the water. Pick up anything on the floor you can." }
+    ]},
+    junk:{ pro:"the crew", fee:"pickup fee", onCall:"the owner", robot:["Oh, okay. I have some junk that needs to be hauled away this week.","junk pickup"], s:[
+      { l:"Garage cleanout", t:"Wed 12:05 pm", n:"Gary", k:"job",
+        ask:"I need my garage cleaned out. Old furniture, boxes and a broken treadmill.",
+        q:"We can help. Is it all in the garage, and is there anything like paint, chemicals or tires?",
+        a:"All in the garage. There are a few paint cans.", pref:"Saturday morning.", prefT:"Saturday morning",
+        job:"Garage cleanout: furniture, boxes, treadmill", note:"A few paint cans", sms:"garage cleanout, furniture, boxes and a treadmill", smsNote:"A few paint cans.",
+        reply:"We can come {when:Saturday 8–10 am}. We'll sort out the paint cans when we're there." },
+      { l:"Price for a truckload", t:"Fri 9:35 am", n:"Irene", k:"price",
+        ask:"How much for a full truckload?", priceJob:"the load",
+        priceNo:"It depends on how much of the truck it fills, so the crew sees the pile and gives you the exact price before loading anything.",
+        a:"Okay, let's set up a pickup.", pref:"Monday or Tuesday.", prefT:"Mon or Tue",
+        job:"Junk pickup, about a truckload", sms:"junk pickup, about a truckload",
+        reply:"We can come {when:Monday 1–3 pm}. Does that work?" },
+      { l:"Estate cleanout deadline", t:"Tue 4:10 pm", n:"Howard", k:"rush", prio:"High",
+        ask:"I'm clearing out my late father's house. The sale closes in nine days and it's full.",
+        q:"I'm sorry for your loss. Is it the whole house, garage included?",
+        a:"The whole house and the garage.", prefT:"Before closing, in 9 days",
+        job:"Estate cleanout, whole house + garage", sms:"estate cleanout, whole house and garage, closing in 9 days",
+        reply:"We can walk the house tomorrow at 10 and plan the hauling before closing. Does that work?" }
+    ]},
+    moving:{ pro:"the crew lead", fee:"estimate visit", onCall:"the owner", robot:["Oh, okay. I need help with a move.","moving help"], s:[
+      { l:"Local 2-bedroom move", t:"Thu 1:50 pm", n:"Cindy", k:"job",
+        ask:"We're moving a two-bedroom apartment across town at the end of the month.",
+        q:"We can help. Are there stairs at either place, and any big items like a piano or a safe?",
+        a:"Second floor with stairs. No piano.", pref:"The 29th, in the morning.", prefT:"The 29th, morning",
+        job:"Local 2-bedroom move, 2nd-floor stairs", sms:"local 2-bedroom move, second floor with stairs",
+        reply:"We can hold {when:the 29th at 8 am} for you. Want it?" },
+      { l:"Hourly price", t:"Mon 6:20 pm", n:"Jorge", k:"price",
+        ask:"What's your hourly rate for movers and a truck?", priceJob:"the move",
+        priceNo:"It depends on the crew size and how much you're moving, so the crew lead goes over it with you and gives you the price before moving day.",
+        a:"Okay, let's talk it through.", pref:"A call tomorrow evening.", prefT:"Tomorrow evening (call back)",
+        job:"Moving quote, hourly crew + truck", sms:"moving quote, hourly crew and truck",
+        reply:"Happy to go over it. Can I call you {when:tomorrow at 6 pm}?" },
+      { l:"Move tomorrow, crew cancelled", t:"Fri 7:15 pm", n:"Tasha", k:"rush",
+        ask:"Our movers just cancelled and we move tomorrow. Is there any way you can help?",
+        q:"I'm sorry, that's stressful. How big is the place, and how far are you going?",
+        a:"A one-bedroom, just a few miles away.", prefT:"Tomorrow",
+        job:"Rush move tomorrow, 1-bedroom, a few miles", sms:"rush move tomorrow, 1-bedroom, a few miles", smsNote:"Their movers cancelled.",
+        reply:"We can send a crew of two tomorrow at 1 pm. Does that work?" }
+    ]},
+    grooming:{ pro:"the groomer", fee:"trip fee", onCall:"the owner", robot:["Oh, okay. I'd like to get my dog groomed this week.","dog grooming"], s:[
+      { l:"Bath + trim at home", t:"Wed 10:05 am", n:"Emily", k:"job",
+        ask:"Can you come groom my dog at the house? She needs a bath and a trim.",
+        q:"We'd love to. What breed is she, and about how much does she weigh?",
+        a:"A goldendoodle, about 45 pounds.", pref:"Thursday morning.", prefT:"Thursday morning",
+        job:"Bath + trim, goldendoodle, about 45 lb", sms:"bath and trim, goldendoodle about 45 lb",
+        reply:"We can bring the van {when:Thursday 9–11 am}. Does that work?" },
+      { l:"Price by size", t:"Sat 1:30 pm", n:"Rick", k:"price",
+        ask:"How much is grooming for a big dog? He's a husky.", priceJob:"the groom",
+        priceNo:"It depends on the size and the coat, so the groomer confirms the exact price with you before starting.",
+        a:"Okay, let's set one up.", pref:"An afternoon next week.", prefT:"Afternoon, next week",
+        job:"Full groom, husky", sms:"full groom, husky",
+        reply:"We can groom your husky {when:Tuesday 2–4 pm}. Does that work?" },
+      { l:"Dog got skunked", t:"Sun 9:40 pm", n:"Chloe", k:"rush",
+        ask:"Our dog just got sprayed by a skunk. Can anyone come soon?",
+        q:"Oh no. Did it get her in the eyes? If her eyes look red or swollen, please call your vet.",
+        a:"I don't think so. She just smells terrible.", prefT:"Tomorrow, first thing",
+        job:"De-skunk bath", note:"Eyes look okay", sms:"dog sprayed by a skunk, needs a de-skunk bath",
+        reply:"We can be there first thing tomorrow at 8. Keep her outside or in the garage tonight." }
+    ]},
+    solar:{ pro:"the tech", fee:"service call", onCall:"the owner", robot:["Oh, okay. I'd like my solar panels cleaned this week.","solar panel cleaning"], s:[
+      { l:"Panel cleaning", t:"Tue 9:00 am", n:"Neil", k:"job",
+        ask:"Our solar panels haven't been cleaned in two years. Can you do that?",
+        q:"Sure. About how many panels, and is it a one- or two-story roof?",
+        a:"24 panels on a one-story.", pref:"Any weekday morning.", prefT:"Weekday morning",
+        job:"Clean 24 panels, 1-story roof", sms:"clean 24 panels, one-story roof",
+        reply:"We can clean them {when:Thursday 8–10 am}. Does that work?" },
+      { l:"Price per panel", t:"Fri 4:50 pm", n:"Olivia", k:"price",
+        ask:"Do you charge per panel? We have about 30.", priceJob:"the cleaning",
+        priceNo:"It depends on the roof and how dirty the panels are, so the tech confirms the exact price with you before starting.",
+        a:"Okay, let's set it up.", pref:"Saturday, if you work then.", prefT:"Saturday",
+        job:"Clean about 30 panels", sms:"clean about 30 panels",
+        reply:"We can come {when:Saturday 8–10 am}. Does that work?" },
+      { l:"Output dropped", t:"Mon 3:15 pm", n:"Hector", k:"rush", prio:"High",
+        ask:"Our solar app shows output dropped a lot this month. Could dirty panels do that?",
+        q:"They can. Dust and bird droppings cut output. If the system shows an error code, your installer should check it too. Do you see any error?",
+        a:"No error, just lower numbers.", prefT:"This week if possible",
+        job:"Output drop, likely dirty panels", note:"No system error", sms:"solar output dropped, no error, likely dirty panels",
+        reply:"We can clean them Wednesday morning, and you can compare the numbers after." }
+    ]},
+    fencing:{ pro:"our estimator", fee:"estimate visit", onCall:"the owner", robot:["Oh, okay. I need some fence work done.","fence work"], s:[
+      { l:"New wood fence", t:"Thu 10:25 am", n:"Bill", k:"job",
+        ask:"We want a new wood fence along the back of the yard, about 80 feet.",
+        q:"Great. Is there an old fence to tear out, and would you like a gate?",
+        a:"Yes, the old one comes out. One walk gate.", pref:"Any morning next week.", prefT:"Morning, next week",
+        job:"New wood fence, about 80 ft, tear-out + 1 gate", sms:"new wood fence about 80 ft, tear-out plus a gate",
+        reply:"We can measure {when:Tuesday at 9 am}. Does that work?" },
+      { l:"Price per foot", t:"Sat 12:55 pm", n:"Karen", k:"price",
+        ask:"What do you charge per foot for vinyl fencing?", priceJob:"the fence",
+        priceNo:"It depends on the height, the style and the ground, so our estimator measures and gives you a written price before any work starts.",
+        a:"Okay, let's set up the measure.", pref:"A weekday after 4.", prefT:"Weekday after 4 pm",
+        job:"Vinyl fence quote", sms:"vinyl fence quote",
+        reply:"We can measure {when:Wednesday at 4:30 pm}. Does that work?" },
+      { l:"Gate broken, dog can get out", t:"Mon 7:10 am", n:"Ryan", k:"rush",
+        ask:"Our side gate hinge snapped and the dog can get out of the yard.",
+        q:"Until it's fixed, can you tie the gate shut or keep the dog inside?",
+        a:"I zip-tied it for now, but it won't hold long.", prefT:"Today if possible",
+        job:"Side gate hinge broken, dog can escape", note:"Zip-tied for now", sms:"side gate hinge snapped, dog can get out", smsNote:"Zip-tied for now.",
+        reply:"We can come by this afternoon, 2–4 pm, to fix the hinge. Does that work?" }
+    ]}
+  };
+
+  /* one builder turns a data scenario into the same [label, time, caller, build()] shape as the hand-written trades */
+  function mk(tr, s){ return [s.l, s.t, s.n, function(){
+    var r = R(), c = cityZip().city, sn = s.smsNote ? " " + s.smsNote : "", d = {};
+    var prio = s.prio || ({ job:"Standard", price:"Standard", urgent:"Emergency", rush:"Urgent" })[s.k];
+    var lines = [["ai", greet(s.open)], ["caller", s.ask]];
+    var fill = function(t){ return t.replace(/\{when:([^}]*)\}/g, function(_, w){ return W(w); }); };
+    if(s.k === "job" || s.k === "price"){
+      lines.push(["ai", s.k === "price" ? (r.quote ? priceLine(s.priceJob, tr) : s.priceNo) : s.q], ["caller", s.a],
+                 ["ai", askTime()], ["caller", prefAnswer(s.pref)], ["ai", closeLine()]);
+      d.ticket = T(s.job, prio, prefTicket(s.prefT), s.note);
+      d.sms = "New " + (s.lead || "job request") + " from " + s.n + ": " + s.sms + ", " + c + ". Prefers " + prefLc(s.prefT) + "." + sn + (s.k === "price" && r.quote ? " Quoted $" + r.fee + " " + tr.fee + "." : "");
+      d.reply = "Hi " + s.n + ", this is " + biz() + ". " + fill(s.reply);
+    } else if(s.k === "urgent"){
+      lines.push(["ai", s.q], ["caller", s.a], ["ai", emergencyLine(tr.onCall)]);
+      d.ticket = T(s.job, prio, r.transfer ? "Now (transferred to on-call)" : "Call back ASAP", s.note);
+      d.sms = (r.transfer ? prio.toUpperCase() + " transferred: " : "URGENT, call back: ") + s.sms + ", " + c + "." + sn + " Caller: " + s.n + ".";
+      d.reply = "Hi " + s.n + ", this is " + biz() + ". " + s.reply;
+    } else {
+      lines.push(["ai", s.q], ["caller", s.a], ["ai", rushLine()]);
+      d.ticket = T(s.job, prio, s.prefT, s.note);
+      d.sms = (prio === "Urgent" ? "RUSH request" : "Priority request") + " from " + s.n + ": " + s.sms + ", " + c + ". Timing: " + s.prefT + "." + sn;
+      d.reply = "Hi " + s.n + ", this is " + biz() + ". " + s.reply;
+    }
+    d.lines = lines; return d;
+  }]; }
+  Object.keys(TR).forEach(function(k){ SC[k] = TR[k].s.map(function(s){ return mk(TR[k], s); }); });
+
+  /* ---------- "Other": match what the visitor typed to a trade, or build calls from their own words ---------- */
+  var MATCH = [
+    ["appt", /notary|photograph|tutor|trainer|training|massage|\bhair|\bnails?\b|manicur|pedicur|barber|salon|stylist|makeup|\blash|\bbrows?\b|tattoo|esthetic|facial|med ?spa|day spa|therap|counsel|coach|lesson|instructor|teacher|\bdj\b|wedding|event plan|pet sit|dog walk|boarding|daycare|bookkeep|\btax|accountant|consult|chiropract|acupunct|yoga|pilates|fitness|music|piano|guitar|cater|\bchef|florist|\bvet\b|veterinar/],
+    ["carpet", /carpet|upholster|\brugs?\b|grout/],
+    ["pressure", /pressure|power ?wash|soft ?wash|windows? ?(clean|wash)/],
+    ["detailing", /detail|car ?wash|ceramic coat|auto spa|paint correction|(car|auto) ?(wax|clean)/],
+    ["mechanic", /mechanic|auto repair|car repair|brake|oil change|\btires?\b|smog/],
+    ["pool", /\bpools?\b(?! table| hall| cue| stick)|\bspas? (service|repair|clean|mainten)|hot tub|jacuzzi/],
+    ["solar", /^solar( panels?)?$|solar.*(clean|wash)/],
+    ["junk", /junk|haul|debris|dumpster|clean ?outs?\b/],
+    ["cleaning", /\bmaids?\b|housekeep|janitor|(house|home|office|commercial|residential|apartment|airbnb|vacation rental|move[- ]?(out|in)|deep)[ -]?clean|^clean(ing|ers?)?( services?| lady| crew)?$/],
+    ["landscaping", /lawn|\bgarden(er|ers|ing)?\b|\byards?\b(?! sale)|landscap|\bmow|irrigation|sprinkler|hardscap|\bsod\b|weed (control|abate|remov|pull)/],
+    ["tree", /\btrees?\b|\barbor|stump/],
+    ["grooming", /groom|dog (wash|bath)|pet (wash|bath|salon|spa)/],
+    ["pest", /\bpests?\b|termite|extermin|rodent|\bbees?\b|wasp|\bbugs?\b|mosquito/],
+    ["hvac", /hvac|heating|\bheat\b|air ?condition|\bac\b|a\/c|furnace|heat pump|\bducts?\b/],
+    ["plumbing", /plumb|\bdrains?\b|water heater|rooter|sewer|water leak|leak detect|repip/],
+    ["electrical", /electric|wiring|ev charg/],
+    ["garage", /garage ?doors?|overhead doors?|^garage$/],
+    ["appliance", /appliance|washer|dryer|fridge|refrigerat|dishwasher|\boven|\bstove/],
+    ["locksmith", /\blocks?\b|locksmith|\bkeys?\b|rekey/],
+    ["roofing", /roof(?! ?racks?|top)|gutter/],
+    ["painting", /\bpaint(er|ers|ing)?\b/],
+    ["fencing", /\bfenc(e|es|ing)\b|\bgates?\b/],
+    ["moving", /\bmov(e|es|ing|ers?)\b|relocat/],
+    ["handyman", /handy|odd jobs?|tv mount|assembl|carpent|(home|house) (repair|fix)/]
+  ];
+  /* Words that look like a trade above but are a different business: these get the general calls, built from their own words. */
+  var SKIP = /tint|window film|windshield|auto glass|auto body|body shop|dry ?clean|dryer vent|chimney|christmas|holiday light|hot dog|food truck|e-?bike|\bbikes?\b|scooter|flooring|carpet install|mower repair|face paint/;
+  /* sanitize: letters, digits and simple punctuation only, ~40 chars; always rendered with textContent */
+  function tidyWords(v){
+    v = String(v || "").replace(/[^\p{L}\p{N}\s&'’.,\/-]/gu, " ").replace(/\s+/g, " ").trim();
+    v = v.replace(/^(i am|i'm|im|we are|we're|i do|we do|i run|we run|my business is|it's|its)\s+/i, "").replace(/^(an?|the)\s+/i, "");
+    var cut = v.replace(/\s+(business|company|llc|inc\.?)$/i, ""); if(cut) v = cut;
+    v = v.split(" ").map(function(x){ return /^[A-Z][a-z]/.test(x) ? x.toLowerCase() : x; }).join(" ");
+    return v.slice(0, 40).replace(/[\s,.\/&'’-]+$/, "").trim();
+  }
+  function otherState(){
+    var w = tidyWords($("otherWhat").value), lw = w.toLowerCase(), key = null, appt = false;
+    var skip = SKIP.test(lw);
+    for(var i = 0; lw && i < MATCH.length; i++){ if(skip && MATCH[i][0] !== "appt") continue; if(MATCH[i][1].test(lw)){ if(MATCH[i][0] === "appt") appt = true; else key = MATCH[i][0]; break; } }
+    return { w:w, key:key, appt:appt };
+  }
+  function isPerson(w){ var last = w.split(" ").pop().toLowerCase(); return /(er|or|ist|ian|smith|man|ary|ess|ach)$/.test(last) || /^(dj|chef|nanny|vet|guy)$/.test(last); }
+  function article(w){ return /^[aeiou]/i.test(w) && !/^(uni|use|eu)/i.test(w) ? "an" : "a"; }
+  function tradeName(k){ var o = $("trade").querySelector('option[value="' + k + '"]'); return o ? o.textContent : k; }
+  function otherNote(o){
+    if(!o.w) return "Showing calls for: a general service business. Type what you do to tailor them.";
+    if(o.key) return "Showing calls for: " + tradeName(o.key) + " (matched from “" + o.w + "”)";
+    return "Showing calls for: " + o.w + (o.appt ? " (appointment-style calls)" : "");
+  }
+  function genMeta(o){
+    var w = o.w, person = w && isPerson(w);
+    var want = !w ? "some help with a job" : person ? article(w) + " " + w : "help with " + w;
+    return { w:w, want:want, seek: person ? "looking for " + want : want, lab: !w ? "general service" : person ? w + " services" : w, pro:"the owner", fee:"visit fee", onCall:"the owner",
+      robot:["Oh, okay. I'm looking for " + want + " this week.", !w ? "general service request" : person ? "looking for " + want : w + " request"] };
+  }
+  function genericSC(o){
+    var g = genMeta(o), appt = o.appt;
+    return [
+      mk(g, { l: appt ? "New client" : "New job request", t:"Tue 6:05 pm", n:"Taylor", k:"job", lead: appt ? "client request" : "job request",
+        ask:"Hi, I'm looking for " + g.want + ". " + (appt ? "Are you taking new clients?" : "Is that something you can help with?"),
+        q: appt ? "We'd be glad to help. Is this your first time, and is there anything the owner should know ahead of time?" : "I can take the details and get them to the owner. Can you tell me a little about what you need?",
+        a: appt ? "Yes, it's my first time. I'd like to start with one appointment and see how it goes." : "Nothing urgent. I'd just like to get it done in the next couple of weeks.",
+        pref:"Weekday evenings are best.", prefT:"Weekday evenings",
+        job: cap(g.seek) + (appt ? ", new client" : ""), sms: g.seek + (appt ? ", new client" : ""),
+        reply:"Thanks for reaching out. I have {when:Tuesday at 6 pm} open. Does that work?" }),
+      mk(g, { l:"Price question", t:"Thu 11:30 am", n:"Morgan", k:"price",
+        ask:"What do you charge? I need " + g.want + " sometime next week.", priceJob:"what you need",
+        priceNo:"Prices depend on exactly what you need, so the owner confirms the price with you before anything is scheduled. I can take your details now.",
+        a:"That works. Let's do that.", pref:"Next Tuesday or Wednesday.", prefT:"Next Tue or Wed",
+        job:"Price question, " + g.lab, sms:"price question about " + g.lab,
+        reply:"Happy to go over pricing with you. I can do {when:next Tuesday at 10 am}. Does that work?" }),
+      mk(g, { l:"Same-day request", t:"Sat 8:40 am", n:"Jamie", k:"rush",
+        ask:"Is there any chance you could help today? I need " + g.want + " as soon as possible.",
+        q:"I'll get this to the owner right away. If anyone is in danger, please hang up and call 911. What's going on, and is text the best way to reach you?",
+        a:"No one's in danger, I'm just in a bind. Text is best.", prefT:"Today if possible",
+        job:"Same-day request: " + g.lab, sms:"same-day request, " + g.seek, smsNote:"Prefers a text back.",
+        reply:"Got your message. I can fit you in at 3 pm today. Does that work?" })
+    ];
+  }
+  /* a matched trade keeps its own sample calls, so its texts say "New job request", not the typed words */
+  function withWords(list){
+    return list.map(function(s){ return [s[0], s[1], s[2], function(){ var d = s[3](); d.sms = d.sms.replace(/^New (job |estimate |inspection |client )?request/, "New job request"); return d; }]; });
+  }
+  function scen(){ if(S.trade !== "other") return SC[S.trade]; var o = otherState(); return o.key ? withWords(SC[o.key]) : genericSC(o); }
+  function meta(){ if(S.trade !== "other") return TR[S.trade] || {}; var o = otherState(); return o.key ? (TR[o.key] || {}) : genMeta(o); }
+
+  var EXTRA = [
+    ["Out of our area","Wed 3:15 pm","Lee",function(){ return { lines:[
+      ["ai",greet()],
+      ["caller","Hi, I'm up in Bakersfield. Can you come out tomorrow?"],
+      ["ai","Thanks for calling. We serve " + cityZip().city + " and nearby cities, so Bakersfield is outside our area. I'm sorry we can't help this time."],
+      ["caller","No problem, thanks."]],
+      ticket:{ Job:"Out-of-area caller (Bakersfield)", Priority:"None", Preferred:"—", Area:"Bakersfield 93301", Note:"Politely declined" },
+      sms:"FYI only: out-of-area caller from Bakersfield was politely declined. Nothing to do.",
+      reply:"" }; }],
+    ["“Are you a robot?”","Thu 5:50 pm","Pat",function(){ var rb = meta().robot; return { lines:[
+      ["ai",greet()],
+      ["caller","Wait, am I talking to a real person?"],
+      ["ai","No, I'm " + poss(biz()) + " AI assistant. I can take your request and get it to the team right away. What do you need?"],
+      ["caller",rb ? rb[0] : "Oh, okay. I need someone to come look at a problem this week."],
+      ["ai",askTime()],["caller",prefAnswer("Any morning this week.")],["ai",closeLine()]],
+      ticket:T(rb ? cap(rb[1]) + ", details in transcript" : "Service visit, details in transcript","Standard",prefTicket("Any morning this week")),
+      sms:"New job request from Pat" + (rb ? ": " + rb[1] + ", " : ", ") + cityZip().city + ". Prefers " + prefLc("any morning this week") + ". Full transcript in your digest.",
+      reply:"Hi Pat, this is " + biz() + ". Wednesday 8–10 am is open this week. Does that work?" }; }],
+    ["Spam / robocall","Wed 11:02 am","Unknown",function(){ return { lines:[
+      ["ai",greet()],
+      ["caller","This is the business listings department. Your Google profile is at risk of being removed today. Press one now or stay on the line to verify your listing."],
+      ["ai","We're not interested, thanks. Goodbye."]],
+      ticket:{ Job:"Sales pitch (Google listing)", Priority:"None", Status:"Screened", Note:"Ended politely, no alert sent" },
+      sms:"", reply:"", screened:true }; }]
+  ];
+  function list(){ return scen().concat(EXTRA); }
+
+  /* ---------- render ---------- */
+  var runId = 0;
+  function msg(who, text, name){
+    var d = document.createElement("div"); d.className = "msg " + who;
+    var w = document.createElement("span"); w.className = "who"; w.textContent = who === "ai" ? biz() + " · receptionist" : "Caller · " + name;
+    d.appendChild(w); d.appendChild(document.createTextNode(text)); return d;
+  }
+  function renderChips(){
+    var c = $("chips"); c.textContent = "";
+    list().forEach(function(s, i){
+      var b = document.createElement("button"); b.type = "button"; b.className = "chip" + (i >= scen().length ? " ghost" : "");
+      b.textContent = s[0]; b.setAttribute("aria-pressed", String(i === S.scenario));
+      b.addEventListener("click", function(){ S.scenario = i; renderChips(); renderAll(); play(); });
+      c.appendChild(b);
+    });
+  }
+  function current(){ var s = list()[S.scenario] || list()[0]; return { meta:s, data:s[3]() }; }
+  function renderPhone(d, name){
+    $("smsText").textContent = d.sms;
+    $("smsBubble").hidden = !!d.screened;
+    var t = $("ticket"); t.textContent = "";
+    Object.keys(d.ticket).forEach(function(k){
+      var dt = document.createElement("dt"); dt.textContent = k;
+      var dd = document.createElement("dd");
+      if(k === "Priority"){ var p = document.createElement("span"); p.className = "prio " + d.ticket[k]; p.textContent = d.ticket[k]; dd.appendChild(p); }
+      else dd.textContent = d.ticket[k];
+      t.appendChild(dt); t.appendChild(dd);
+    });
+    var ra = $("replyArea"); ra.textContent = "";
+    if(d.screened){ var sc = document.createElement("p"); sc.className = "screened"; sc.textContent = "Screened: sales/spam call — no action needed. Nothing was sent to you."; ra.appendChild(sc); return; }
+    if(!d.reply){ var n = document.createElement("p"); n.className = "waiting"; n.textContent = "No request created. The receptionist follows your service-area rule."; ra.appendChild(n); return; }
+    var wait = document.createElement("p"); wait.className = "waiting";
+    wait.innerHTML = "<span>Status:</span> <b>Waiting for you.</b> <span>Nothing is booked until you reply.</span>";
+    var btn = document.createElement("button"); btn.type = "button"; btn.className = "btn btn-ghost"; btn.textContent = "Text " + name + " back from your phone";
+    btn.addEventListener("click", function(){
+      btn.remove(); wait.innerHTML = "<span>Status:</span> <b>You offered a time.</b> <span>Your text, your call.</span>";
+      var bub = document.createElement("div"); bub.className = "reply-bubble";
+      var f = document.createElement("span"); f.className = "from"; f.textContent = "You → " + name + " (your text)";
+      bub.appendChild(f); bub.appendChild(document.createTextNode(d.reply)); ra.appendChild(bub);
+    });
+    ra.appendChild(wait); ra.appendChild(btn);
+  }
+  function renderStatic(){
+    var c = current();
+    $("thread").textContent = "";
+    c.data.lines.forEach(function(l){ $("thread").appendChild(msg(l[0], l[1], c.meta[2])); });
+    $("callTime").textContent = c.meta[1]; $("callLabel").textContent = c.meta[0];
+    renderPhone(c.data, c.meta[2]);
+  }
+  function wait(ms){ return new Promise(function(r){ setTimeout(r, ms); }); }
+  function say(text, who){
+    return new Promise(function(res){
+      if(!$("speak").checked || !("speechSynthesis" in window)){ res(false); return; }
+      try{
+        var u = new SpeechSynthesisUtterance(text);
+        var vs = speechSynthesis.getVoices().filter(function(v){ return /^en/i.test(v.lang); });
+        if(vs.length) u.voice = who === "ai" ? vs[0] : (vs[1] || vs[0]);
+        u.rate = 1.04; u.pitch = who === "ai" ? 1.05 : .92;
+        u.onend = function(){ res(true); }; u.onerror = function(){ res(false); };
+        speechSynthesis.speak(u);
+      }catch(e){ res(false); }
+    });
+  }
+  async function play(){
+    var my = ++runId; var c = current();
+    try{ if("speechSynthesis" in window) speechSynthesis.cancel(); }catch(e){}
+    var th = $("thread"); th.textContent = "";
+    $("callPane").classList.add("playing");
+    $("callTime").textContent = c.meta[1]; $("callLabel").textContent = c.meta[0];
+    $("smsBubble").hidden = false; $("smsText").textContent = "…"; $("ticket").textContent = ""; $("replyArea").textContent = "";
+    for(var i = 0; i < c.data.lines.length; i++){
+      if(my !== runId) return;
+      var l = c.data.lines[i];
+      th.appendChild(msg(l[0], l[1], c.meta[2]));
+      var spoke = await say(l[1], l[0]);
+      if(!spoke) await wait(reduce ? 120 : Math.min(2200, 500 + l[1].length * 22));
+    }
+    if(my !== runId) return;
+    $("callPane").classList.remove("playing");
+    renderPhone(c.data, c.meta[2]);
+  }
+
+  function renderRules(){
+    var r = R();
+    $("saysWindows").innerHTML = "<b>Callers hear</b>"; $("saysWindows").appendChild(document.createTextNode(askTime()));
+    $("saysTransfer").innerHTML = "<b>In an emergency</b>"; $("saysTransfer").appendChild(document.createTextNode(emergencyLine(meta().onCall)));
+    $("saysQuote").innerHTML = "<b>Asked for a price</b>"; $("saysQuote").appendChild(document.createTextNode(priceLine("the job", meta())));
+    $("saysSpanish").innerHTML = "<b>Greeting</b>"; $("saysSpanish").appendChild(document.createTextNode(greet()));
+    $("feeAmt").disabled = !r.quote;
+  }
+  function renderDigest(){
+    var o = owner(), sc = scen();
+    $("mailTo").textContent = o ? o + " at " + biz() : biz();
+    $("mailSubj").textContent = "Since your last summary at " + biz() + ": " + sc.length + " calls that need your team";
+    $("mailHello").textContent = "Good morning" + (o ? ", " + o : "") + ". The front desk answered every call your team couldn't get to. Here's what needs a time from you.";
+    $("mailStats").innerHTML = "<span>Calls answered <b>" + (sc.length + 3) + "</b></span><span>Job requests <b>" + sc.length + "</b></span><span>Spam &amp; sales calls screened <b>2</b></span><span>Out of area <b>1</b></span><span>Missed <b>0</b></span>";
+    var tb = $("mailRows"); tb.textContent = "";
+    sc.forEach(function(s){
+      var d = s[3](); var tr = document.createElement("tr");
+      var em = /transferred|Call back ASAP/.test(d.ticket.Preferred); var status = em ? (R().transfer ? "Handled by on-call" : "Call back first") : "Waiting for you";
+      [s[1], d.ticket.Job, d.ticket.Area, null, d.ticket.Preferred, status].forEach(function(v, i){
+        var td = document.createElement("td");
+        td.setAttribute("data-label", ["Called","Request","Area","Priority","Preferred","Status"][i]);
+        if(i === 0) td.className = "time";
+        if(i === 1) td.className = "req";
+        if(i === 3){ var p = document.createElement("span"); p.className = "prio " + d.ticket.Priority; p.textContent = d.ticket.Priority; p.style.justifySelf = "start"; td.appendChild(p); }
+        else td.textContent = v;
+        tr.appendChild(td);
+      });
+      tb.appendChild(tr);
+    });
+  }
+  function renderAll(){
+    document.querySelectorAll("[data-biz]").forEach(function(el){ el.textContent = $("bizName").value.trim() || (el.closest("h1") ? "Your Company" : "your company"); });
+    var isO = S.trade === "other"; $("otherField").hidden = !isO;
+    if(isO) $("otherNote").textContent = otherNote(otherState());
+    renderRules(); renderDigest(); renderStatic();
+  }
+
+  /* ---------- wire up ---------- */
+  ["bizName","ownerName","otherWhat"].forEach(function(id){ $(id).addEventListener("input", function(){ runId++; store("ovs-prev-" + id, $(id).value); if(id === "otherWhat"){ S.scenario = Math.min(S.scenario, 4); renderChips(); } renderAll(); }); });
+  ["trade","city"].forEach(function(id){ $(id).addEventListener("change", function(){ runId++; store("ovs-prev-" + id, $(id).value); if(id === "trade"){ S.trade = $("trade").value; S.scenario = 0; renderChips(); } renderAll(); }); });
+  ["rWindows","rTransfer","rQuote","rSpanish","feeAmt"].forEach(function(id){ $(id).addEventListener(id === "feeAmt" ? "input" : "change", function(){ runId++; $("callPane").classList.remove("playing"); renderAll(); }); });
+  $("setupForm").addEventListener("submit", function(e){ e.preventDefault(); });
+  $("playBtn").addEventListener("click", play);
+  $("heroPlay").addEventListener("click", function(){ $("demo").scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" }); play(); });
+  $("speak").addEventListener("change", function(){ if(!this.checked){ try{ speechSynthesis.cancel(); }catch(e){} } });
+  $("copyBtn").addEventListener("click", function(){
+    var b = this, txt = $("emailAddr").textContent;
+    function sel(){ var r = document.createRange(); r.selectNodeContents($("emailAddr")); var s = getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = "Selected, press copy"; }
+    try{ navigator.clipboard.writeText(txt).then(function(){ b.textContent = "Copied"; }, sel); }catch(e){ sel(); }
+  });
+
+  ["bizName","ownerName","otherWhat","trade","city"].forEach(function(id){ var v = store("ovs-prev-" + id); if(v){ var el = $(id); if(el.tagName === "SELECT"){ if([].some.call(el.options, function(o){ return o.value === v; })) el.value = v; } else el.value = v; } });
+  S.trade = $("trade").value;
+  renderChips(); renderAll();
+})();
+</script>
+
+</body></html>
