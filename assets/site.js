@@ -56,7 +56,9 @@
       "#ovs-consent .row{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}" +
       "#ovs-consent button{font:600 15px/1 Inter,system-ui,sans-serif;padding:12px 18px;border-radius:999px;cursor:pointer;border:1px solid #3A4E70;background:transparent;color:#EEF1F6}" +
       "#ovs-consent button.ok{background:#9BE01E;border-color:#9BE01E;color:#17230A}" +
-      "@media (max-width:820px){#ovs-consent{bottom:86px}}";
+      "@media (max-width:820px){#ovs-consent{left:8px;right:8px;bottom:calc(76px + env(safe-area-inset-bottom,0px));padding:10px 12px;border-radius:14px;" +
+      "font-size:13px;line-height:1.35;display:grid;grid-template-columns:1fr auto auto;gap:8px;align-items:center}" +
+      "#ovs-consent .row{display:contents}#ovs-consent button{min-height:40px;padding:8px 12px;font-size:14px}}";
     var st = document.createElement("style");
     st.id = "ovs-consent-css";
     st.textContent = css;
@@ -70,7 +72,7 @@
     box.id = "ovs-consent";
     box.setAttribute("role", "region");
     box.setAttribute("aria-label", "Analytics notice");
-    box.innerHTML = '<p>With your OK, this site uses Google Analytics cookies to count visits and see which pages help. No ads, and your data is never sold. <a href="/privacy/">Privacy policy</a></p>' +
+    box.innerHTML = '<p>Analytics cookies, only with your OK. No ads, never sold. <a href="/privacy/#cookies">Details</a></p>' +
       '<div class="row"><button type="button" class="ok" data-consent="granted">Accept</button><button type="button" data-consent="denied">Decline</button></div>';
     box.addEventListener("click", function (e) {
       var b = e.target.closest ? e.target.closest("button[data-consent]") : null;
@@ -120,13 +122,39 @@
   }
 
   /* ---------- mobile menu ---------- */
+  /* ---------- "AI services" dropdown in the desktop header (CSS opens it on hover/focus too) ---------- */
+  function initNavDrop() {
+    var drop = document.querySelector(".nav-drop");
+    if (!drop) return;
+    var b = drop.querySelector(".nav-drop-btn");
+    function set(open) {
+      drop.classList.toggle("open", open);
+      b.setAttribute("aria-expanded", open ? "true" : "false");
+      if (!open) drop.classList.add("dismissed"); else drop.classList.remove("dismissed");
+    }
+    b.addEventListener("click", function () { set(!drop.classList.contains("open")); });
+    document.addEventListener("click", function (e) { if (drop.classList.contains("open") && !drop.contains(e.target)) set(false); });
+    document.addEventListener("keydown", function (e) {
+      if (e.key !== "Escape") return;
+      if (drop.classList.contains("open") || drop.matches(":hover")) { var had = drop.contains(document.activeElement); set(false); if (had) b.focus(); }
+    });
+    drop.addEventListener("mouseleave", function () { drop.classList.remove("dismissed"); });
+    drop.addEventListener("focusout", function (e) { if (!drop.contains(e.relatedTarget)) { drop.classList.remove("open"); b.setAttribute("aria-expanded", "false"); } });
+  }
+
   function initMenu() {
     var btn = document.querySelector("[data-menu-toggle]");
     var nav = document.getElementById("site-nav");
     if (!btn || !nav) return;
-    btn.addEventListener("click", function () {
+    btn.addEventListener("click", function (e) {
       var open = nav.classList.toggle("open");
       btn.setAttribute("aria-expanded", open ? "true" : "false");
+      /* opened from the keyboard (Enter/Space give e.detail 0): the menu sits before this button in the page,
+         so move focus to its first link; Esc closes it and returns focus here */
+      if (open && e.detail === 0) {
+        var first = Array.prototype.filter.call(nav.querySelectorAll("a, button"), function (el) { return el.offsetParent !== null; })[0];
+        if (first) first.focus();
+      }
     });
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape" && nav.classList.contains("open")) { nav.classList.remove("open"); btn.setAttribute("aria-expanded", "false"); btn.focus(); }
@@ -243,18 +271,31 @@
       if (radio) radio.checked = true;
     }
     var svc = (q.get("service") || "").toLowerCase();
-    var map = [[/launch/, "Launch package"], [/brand package/, "Brand package"], [/grow package/, "Grow package"], [/^brand$|logo/, "Logo or brand"],
-               [/web/, "Website"], [/marketing|social|google/, "Google profile or social"], [/uniform|print|sign|card/, "Cards, uniforms or signs"],
-               [/operations|front desk/, "AI Front Desk"], [/growth/, "Grow package"]];
-    var tick = function (v) { var c = form.querySelector("input[name=need][value='" + v + "']"); if (c) c.checked = true; };
+    var map = [[/start-?up|plan|naming|roadmap|research|pricing/, "Business plan or startup help"],
+               [/audit|growth/, "Growth Audit ($295)"],
+               [/^seo$|local seo/, "Local SEO"], [/^ads$|ad camp/, "Ad campaigns"], [/^design$|graphic/, "Graphic design"],
+               [/agent team/, "AI Agent Teams"], [/launch package|^launch$/, "Launch package"], [/brand package/, "Brand package"],
+               [/grow package/, "Grow package"], [/^brand$|logo/, "Logo or brand"], [/web/, "Website"],
+               [/marketing|social|google/, "Google profile or social"], [/uniform|print|sign|card/, "Cards, uniforms or signs"],
+               [/operations|front desk/, "AI Front Desk"], [/care|monthly|management/, "Monthly help"]];
+    var boxes = form.querySelectorAll("input[name=need]");
+    var tick = function (v) { Array.prototype.forEach.call(boxes, function (c) { if (c.value === v) c.checked = true; }); };
     if (need === "unsure") tick("Not sure yet");
-    for (var i = 0; svc && i < map.length; i++) { if (map[i][0].test(svc)) { tick(map[i][1]); break; } }
+    var exact = null;
+    Array.prototype.forEach.call(boxes, function (c) { if (c.value.toLowerCase() === svc) exact = c.value; });
+    if (exact) tick(exact);
+    else for (var i = 0; svc && i < map.length; i++) { if (map[i][0].test(svc)) { tick(map[i][1]); break; } }
+    var item = q.get("item");
+    if (item && form.elements.specific) form.elements.specific.value = item.slice(0, 120);
     var city = q.get("city");
     if (city && form.elements.city) {
       Array.prototype.forEach.call(form.elements.city.options, function (o) { if (o.text.toLowerCase() === city.toLowerCase()) o.selected = true; });
     }
     tips();
     show(1);
+    if ("IntersectionObserver" in window && document.querySelector(".mobile-cta")) {
+      new IntersectionObserver(function (en) { document.body.classList.toggle("form-in-view", en[0].isIntersecting); }, { threshold: 0.05 }).observe(form.parentNode);
+    }
     form.addEventListener("change", function (e) { if (e.target.name === "stage") tips(); });
     form.querySelector(".qnext").addEventListener("click", function () {
       if (!stage()) { err.textContent = "Please choose whether you're starting a new business or already open."; return; }
@@ -263,12 +304,14 @@
       var f = document.getElementById("qName"); if (f) f.focus();
     });
     form.querySelector(".qback").addEventListener("click", function () { show(1); });
+    var leadSent = false;
     function request() {
       var lines = [
         "Hi Colton,", "",
         "Where I am: " + stage(),
         "What I need: " + needs().join(", "),
         "Target date: " + (val("date") || "-"),
+        "Specific service: " + (val("specific") || "-"),
         "Budget: " + (val("budget") || "-"), "",
         "Name: " + val("name"),
         "Business: " + (val("business") || "-"),
@@ -278,6 +321,7 @@
         "Anything else: " + (val("more") || "-")
       ];
       if (q.get("service")) lines.push("", "Came from: " + q.get("service"));
+      if (q.get("item")) lines.push("Item: " + q.get("item"));
       return lines.join("\n");
     }
     form.addEventListener("submit", function (e) {
@@ -293,15 +337,17 @@
       done.hidden = false;
       done.focus({ preventScroll: true });
       done.scrollIntoView({ behavior: "smooth", block: "start" });
-      track("generate_lead", { form: "quote", stage: stage(), needs: needs().join(", "), city: val("city") });
+      if (!leadSent) { leadSent = true; track("generate_lead", { form: "quote", stage: stage(), needs: needs().join(", "), city: val("city") }); }
       window.location.href = href;
     });
-    document.getElementById("quoteEdit").addEventListener("click", function () { done.hidden = true; form.hidden = false; show(2); });
+    document.getElementById("quoteEdit").addEventListener("click", function () { done.hidden = true; form.hidden = false; show(2); var f = document.getElementById("qName"); if (f) f.focus(); });
     document.getElementById("quoteCopy").addEventListener("click", function () {
       var t = document.getElementById("quoteText"), msg = document.getElementById("quoteCopyMsg");
       var ok = function () { msg.textContent = "Copied. Paste it into an email to " + to + "."; };
-      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(t.value).then(ok, function () { t.select(); document.execCommand("copy"); ok(); });
-      else { t.select(); document.execCommand("copy"); ok(); }
+      var fail = function () { t.select(); msg.textContent = "Couldn't copy automatically. The text is selected: copy it and email it to " + to + "."; };
+      var legacy = function () { var r = false; t.select(); try { r = document.execCommand("copy"); } catch (e) { r = false; } if (r) ok(); else fail(); };
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(t.value).then(ok, legacy);
+      else legacy();
     });
   }
 
@@ -314,6 +360,7 @@
     initQuoteForm();
     initPrint();
     initMenu();
+    initNavDrop();
     initClicks();
     initPackageView();
     initScroll();
