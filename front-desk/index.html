@@ -401,6 +401,12 @@ summary{align-items:center}
 :root[data-theme="light"] .brand .logo-light{display:block}
 @media (prefers-color-scheme: light){:root:not([data-theme="dark"]) .brand .logo-dark{display:none}:root:not([data-theme="dark"]) .brand .logo-light{display:block}}
 .brand small{margin-top:0;padding-left:10px;border-left:1px solid var(--line)}
+.brand .brand-tag{display:flex;flex-direction:column;gap:3px;padding-left:12px;border-left:1px solid var(--line);white-space:nowrap;line-height:1.1}
+.brand .brand-tag b{font:700 .95rem/1.1 var(--display);letter-spacing:.01em;color:var(--fg)}
+.brand .brand-tag span{font:600 .6rem/1.2 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+@media (max-width:560px){.brand .brand-tag{padding-left:9px;gap:2px}.brand .brand-tag b{font-size:.84rem}.brand .brand-tag span{font-size:.54rem;letter-spacing:.1em}}
+@media (max-width:340px){.brand .brand-tag span{display:none}}
+@media (max-width:560px){.nav .btn-sm{display:none}}
 #themeBtn,.menu-btn{width:44px;height:44px;flex:none}
 .menu-btn{display:none}
 .studio-links{display:flex;flex-wrap:wrap;gap:0 18px;margin-top:10px}
@@ -434,7 +440,7 @@ summary{align-items:center}
 <a class="skip" href="#top">Skip to content</a>
 <header class="top">
   <div class="wrap nav">
-    <a class="brand" href="/"><img class="logo-dark" src="/assets/brand/logo-light-text-240.webp" width="62" height="50" alt="Old Vine Studio"><img class="logo-light" src="/assets/brand/logo-dark-text-240.webp" width="62" height="50" alt="Old Vine Studio"><span><small>AI Front Desk</small></span></a>
+    <a class="brand" href="/"><img class="logo-dark" src="/assets/brand/logo-light-text-240.webp" width="62" height="50" alt="Old Vine Studio"><img class="logo-light" src="/assets/brand/logo-dark-text-240.webp" width="62" height="50" alt="Old Vine Studio"><span class="brand-tag"><b>Business Consulting</b><span>AI Front Desk</span></span></a>
     <nav class="navlinks" id="site-nav" aria-label="Sections">
       <a href="#sample">Sample call</a>
       <a href="#how">How it works</a>

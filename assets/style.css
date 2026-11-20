@@ -438,8 +438,11 @@ a.work-card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
 .night .logo-on-dark,.cta-band .logo-on-dark{display:block!important}
 .night .logo-on-light,.cta-band .logo-on-light{display:none!important}
 .portrait img{margin:auto}
-.brand-tag{font:600 .6rem/1.45 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);padding-left:12px;border-left:1px solid var(--line);white-space:nowrap}
-@media (max-width:1240px){.brand-tag{display:none}}
+.brand-tag{display:flex;flex-direction:column;gap:3px;padding-left:12px;border-left:1px solid var(--line);white-space:nowrap;line-height:1.1}
+.brand-tag b{font:700 .95rem/1.1 var(--display);letter-spacing:.01em;color:var(--fg)}
+.brand-tag span{font:600 .6rem/1.2 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+@media (max-width:560px){.brand-tag{padding-left:9px;gap:2px}.brand-tag b{font-size:.84rem}.brand-tag span{font-size:.54rem;letter-spacing:.1em}}
+@media (max-width:340px){.brand-tag span{display:none}}
 @media (max-width:560px){.brand img{height:48px}}
 .page-hero .lede p+p{margin-top:1em}
 .kit-bcard img{width:80px;height:auto}
