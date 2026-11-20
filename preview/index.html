@@ -6,18 +6,18 @@
 <title>See your AI front desk answer | Old Vine Studio</title>
 <meta name="description" content="Hear an AI receptionist answer as your business. Free preview for Temecula Valley home service businesses, plus a live demo line: (951) 501-4478.">
 <link rel="canonical" href="https://oldvinefrontdesk.com/preview/">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%230E1726'/%3E%3Ccircle cx='12.5' cy='17' r='4' fill='%23F4B24A'/%3E%3Ccircle cx='19.5' cy='17' r='4' fill='%23F4B24A'/%3E%3Ccircle cx='16' cy='23.5' r='4' fill='%23F4B24A'/%3E%3C/svg%3E">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/favicon-32.png"><link rel="apple-touch-icon" sizes="180x180" href="/assets/brand/apple-touch-icon.png">
 <meta property="og:title" content="See your AI front desk answer | Old Vine Studio">
 <meta property="og:description" content="Hear an AI receptionist answer as your business. Free preview for Temecula Valley home service businesses, plus a live demo line: (951) 501-4478.">
 <meta property="og:url" content="https://oldvinefrontdesk.com/preview/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Old Vine Studio">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://oldvinefrontdesk.com/og-image.png">
+<meta property="og:image" content="https://oldvinefrontdesk.com/assets/og/og-frontdesk.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Old Vine Studio AI Front Desk: an example job alert on the owner's phone, and the live demo line (951) 501-4478.">
-<meta name="twitter:card" content="summary_large_image">
+<meta property="og:image:alt" content="Old Vine Studio AI Front Desk: an example job request sent to the owner to approve">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="See your AI front desk answer | Old Vine Studio"><meta name="twitter:description" content="Hear an AI receptionist answer as your business. Free preview for Temecula Valley home service businesses, plus a live demo line: (951) 501-4478."><meta name="twitter:image" content="https://oldvinefrontdesk.com/assets/og/og-frontdesk.png">
 <meta name="theme-color" content="#0E1726">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -245,13 +245,19 @@ details p{margin:0;padding:0 0 16px}
   .tbl td.req{grid-column:1 / -1;font-weight:600}
   .tbl td.time{white-space:normal}
 }
+/* site integration: skip link, 44px targets, footer links */
+.skip{position:absolute;left:-9999px;top:8px;z-index:100;background:var(--amber);color:var(--on-amber);padding:10px 16px;border-radius:8px;font-weight:600;text-decoration:none}.skip:focus{left:12px}
+#themeBtn{width:44px;height:44px}.toggle{min-height:44px}.switch input{inset:-9px -4px;width:auto;height:auto}
+.foot-links{display:flex;flex-wrap:wrap;gap:0 18px}.foot-links a{color:inherit;display:inline-flex;align-items:center;min-height:44px}
+main button,.btn{min-height:44px!important}.top .brand{min-height:44px}footer a{display:inline-flex;align-items:center;min-height:44px}
 </style>
+<script src="/assets/ga-id.js" defer></script><script src="/assets/site.js" defer></script>
 </head>
 <body>
-
+<a class="skip" href="#main" data-ovs-static>Skip to content</a>
 <header class="top">
   <div class="wrap nav">
-    <a class="brand" href="/" aria-label="Old Vine Studio AI Front Desk, home page" style="color:inherit;text-decoration:none">
+    <a class="brand" href="/" style="color:inherit;text-decoration:none">
       <svg width="28" height="31" viewBox="20 30 160 175" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"><path d="M52 168 C 52 128, 92 118, 100 84 C 108 52, 80 38, 62 52"/><path d="M100 84 C 126 80, 140 100, 124 114 C 112 124, 98 114, 106 104"/></g><path d="M100 84 C 126 52, 160 54, 170 70 C 150 92, 122 98, 100 84 Z" fill="currentColor"/><g style="fill:var(--amber)"><circle cx="62" cy="166" r="10"/><circle cx="82" cy="170" r="10"/><circle cx="72" cy="187" r="10"/></g></svg>
       <span><b>Old Vine Studio</b><small>AI Front Desk preview</small></span>
     </a>
@@ -262,11 +268,11 @@ details p{margin:0;padding:0 0 16px}
   </div>
 </header>
 
-<main>
+<main id="main">
   <section class="wrap hero">
     <p class="eyebrow">Built for home and local service businesses in the Temecula Valley</p>
     <h1>See your front desk answer as <span class="biz" data-biz>Your Company</span>.</h1>
-    <p class="lede">Type your business name below. Every call, alert and report on this page updates to show exactly what you would get: the receptionist takes the job request, and you decide the time. It never books on its own. It works for home and local service businesses, from plumbing and HVAC to mobile detailing, landscaping, pool service and house cleaning.</p>
+    <p class="lede">Type your business name below. Every call, alert and report on this page updates to show the kind of call, alert and report you would get: the receptionist takes the job request, and you decide the time. It never books on its own. It works for home and local service businesses, from plumbing and HVAC to mobile detailing, landscaping, pool service and house cleaning.</p>
     <form class="setup" id="setupForm" autocomplete="off">
       <div class="field"><label for="bizName">Your business name</label><input type="text" id="bizName" maxlength="60" placeholder="e.g. Valley Air &amp; Heat"></div>
       <div class="field"><label for="trade">Trade</label>
@@ -296,7 +302,7 @@ details p{margin:0;padding:0 0 16px}
       <div class="go"><button class="btn btn-primary" id="heroPlay" type="button"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 1.5v11l9-5.5z" fill="currentColor"/></svg>Play a sample call</button></div>
     </form>
     <p class="note">Nothing you type leaves this page. This is a simulation; your real receptionist is written from your own services, prices, hours and rules.</p>
-    <p class="note" style="font-size:.92rem">Rather hear a real call? Phone our live demo receptionist at <a href="tel:+19515014478" style="color:var(--amber);font-weight:700;white-space:nowrap">(951)&nbsp;501-4478</a>, any time.</p>
+    <p class="note" style="font-size:.92rem">Rather hear a real call? Phone the demo line at <a href="tel:+19515014478" style="color:var(--amber);font-weight:700;white-space:nowrap">(951)&nbsp;501-4478</a>. An AI receptionist answers it.</p>
   </section>
 
   <section class="band alt" id="demo">
@@ -337,7 +343,7 @@ details p{margin:0;padding:0 0 16px}
       <div class="rules">
         <div class="rule">
           <div class="rule-top"><span class="switch"><input type="checkbox" id="rWindows" aria-label="Offer time windows I open"><span></span></span>
-            <div><h3>Offer only the time windows I open</h3><p class="note">Off by default: every call becomes a request, and your team picks the time.</p></div></div>
+            <div><h3>Offer only the time windows I open</h3><p class="note">Off by default: each customer call it takes becomes a request, and your team picks the time.</p></div></div>
           <p class="says" id="saysWindows"></p>
         </div>
         <div class="rule">
@@ -347,7 +353,7 @@ details p{margin:0;padding:0 0 16px}
         </div>
         <div class="rule">
           <div class="rule-top"><span class="switch"><input type="checkbox" id="rQuote" aria-label="Quote my service-call fee"><span></span></span>
-            <div><h3>Quote my service-call fee</h3><p class="note">It never quotes a job price. Only the numbers you approve.</p></div></div>
+            <div><h3>Quote my service-call fee</h3><p class="note">It's set up not to quote job prices. Only the numbers you approve.</p></div></div>
           <div class="fee"><label for="feeAmt">Fee $</label><input type="number" id="feeAmt" min="0" max="999" step="1" value="89"></div>
           <p class="says" id="saysQuote"></p>
         </div>
@@ -364,7 +370,7 @@ details p{margin:0;padding:0 0 16px}
     <div class="wrap">
       <div class="head">
         <p class="eyebrow">3 · Every morning</p>
-        <h2>One email with every call your team couldn't get to.</h2>
+        <h2>One email with the calls your team couldn't get to.</h2>
         <p class="muted">Example numbers. Each request links to the caller's number and the full transcript.</p>
       </div>
       <div class="mail">
@@ -393,9 +399,9 @@ details p{margin:0;padding:0 0 16px}
         <p class="muted">No meetings, no sales calls, no new phone number.</p>
       </div>
       <div class="steps">
-        <div class="step"><h3>Reply "start"</h3><p>We send 10 short questions about your services, area, hours and rules.</p></div>
-        <div class="step"><h3>We write and test it</h3><p>Script, FAQs and your rules, then 5 test calls: a job, a price question, an urgent call, an out-of-area caller and "are you a robot?"</p></div>
-        <div class="step"><h3>You hear it first</h3><p>Call it yourself and tell us what to change. Nothing goes live until you say so.</p></div>
+        <div class="step"><h3>Reply "start"</h3><p>I send 10 short questions about your services, area, hours and rules.</p></div>
+        <div class="step"><h3>I write and test it</h3><p>Script, FAQs and your rules, then 5 test calls: a job, a price question, an urgent call, an out-of-area caller and "are you a robot?"</p></div>
+        <div class="step"><h3>You hear it first</h3><p>Call it yourself and tell me what to change. Nothing goes live until you say so.</p></div>
         <div class="step"><h3>Forward missed calls</h3><p>Busy and no-answer only, so your phone still rings first. Turn it off any time.</p></div>
       </div>
     </div>
@@ -414,8 +420,8 @@ details p{margin:0;padding:0 0 16px}
           <ul class="ticks">
             <li><span>Receptionist written and tuned for <span data-biz>your company</span></span></li>
             <li>Every job request sent to your phone, plus a morning summary</li>
-            <li>Spam &amp; sales calls screened out — robocalls, scam calls and sales pitches never turn into alerts on your phone. If it’s unsure, it treats the caller as a customer. Included free on every plan.</li>
-            <li>Tuned every week from real call transcripts</li>
+            <li>Helps screen spam &amp; sales calls: robocalls, scam calls and sales pitches it identifies are kept out of your alerts. If it’s unsure, it treats the caller as a customer. Included free on every plan.</li>
+            <li>Tuned regularly from real call transcripts</li>
             <li>500 call minutes a month included, phone line and software too</li>
             <li>Your 30 days start the day your line goes live</li>
             <li>Then $149/mo, locked for as long as you stay. Cancel any time.</li>
@@ -428,7 +434,7 @@ details p{margin:0;padding:0 0 16px}
           <div class="addons">
             <div><span>Spanish line: callers can choose Spanish, your job requests still arrive in English</span><span>+$29/mo</span></div>
           </div>
-          <p class="note">Add or drop it with one email. We never push upgrades.</p>
+          <p class="note">Add or drop it with one email. I never push upgrades.</p>
           <p class="note">After the 5 founding spots: Standard is $299 setup + $199/mo with 500 minutes. Busy is $299/mo with 1,500 minutes for high call volume.</p>
         </div>
       </div>
@@ -441,8 +447,8 @@ details p{margin:0;padding:0 0 16px}
       <div class="faq">
         <details><summary>Will it book jobs or promise times without me?</summary><p>No. By default it takes the request and the caller's preferred times, and your team confirms. If you turn on "offer windows I open", it only offers the windows you list, and you still approve each one.</p></details>
         <details><summary>Will callers know it's AI?</summary><p>Yes. The greeting says it's your business's AI assistant and that the call is recorded. If anyone asks again, it tells them the same.</p></details>
-        <details><summary>Does it screen spam and sales calls?</summary><p>Yes, free on every plan. Robocalls, scam calls and sales pitches are ended politely and never become alerts on your phone; they only show up as a count in your morning summary. Screening applies to calls your receptionist answers (the calls you forward to it).</p></details>
-        <details><summary>What if it gets something wrong?</summary><p>You get the transcript of every call. Email us what to change and we update the script, usually the same day.</p></details>
+        <details><summary>Does it screen spam and sales calls?</summary><p>Yes, free on every plan. It helps screen spam and sales calls: robocalls, scam calls and sales pitches it identifies are ended politely and kept out of your alerts; they show up as a count in your morning summary. Screening applies to calls your receptionist answers (the calls you forward to it).</p></details>
+        <details><summary>What if it gets something wrong?</summary><p>You get a transcript of each call it takes. Email me what to change and I update the script, usually the same day.</p></details>
         <details><summary>Do I need a new phone number?</summary><p>No. You forward busy and no-answer calls from your current number, so you and your team still answer first.</p></details>
         <details><summary>How do I cancel?</summary><p>Reply "cancel" to any email, or use the billing link in your Stripe receipt. Service runs to the end of the period you paid for, and you're not charged again. Turn off call forwarding and it's done; your business number stays yours.</p></details>
       </div>
@@ -453,13 +459,13 @@ details p{margin:0;padding:0 0 16px}
     <div class="cta">
       <div style="display:grid;gap:8px;min-width:0">
         <h2>Want this answering for <span data-biz>your company</span>?</h2>
-        <p class="muted">Reply "start" to our email, or write to us. We answer within one business day, by email.</p>
-        <p class="muted">Want to hear a real call first? Phone our live demo receptionist at <a href="tel:+19515014478" style="color:var(--amber);font-weight:700;white-space:nowrap">(951)&nbsp;501-4478</a>, any time. It's our own AI receptionist.</p>
+        <p class="muted">Ask for a quote by email and I answer within one business day. Already a client? Write to help@oldvinefrontdesk.com.</p>
+        <p class="muted">Want to hear a real call first? Phone the demo line at <a href="tel:+19515014478" style="color:var(--amber);font-weight:700;white-space:nowrap">(951)&nbsp;501-4478</a>. Old Vine Studio's own AI receptionist answers it.</p>
       </div>
       <div class="addr">
-        <a class="btn btn-primary" href="mailto:OldVineStudio@gmail.com?subject=Start%20my%20AI%20front%20desk">Email us to start</a>
-        <a class="btn btn-ghost" href="/#demo">Get a free one-page plan</a>
-        <code id="emailAddr">OldVineStudio@gmail.com</code>
+        <a class="btn btn-primary" href="mailto:quote@oldvinefrontdesk.com?subject=Quote%20request%20-%20AI%20Front%20Desk%20preview" data-service="AI Front Desk preview" data-cta="preview_contact">Email for a quote</a>
+        <a class="btn btn-ghost" href="/front-desk/#demo">Get a free one-page plan</a>
+        <code id="emailAddr">quote@oldvinefrontdesk.com</code>
         <button class="btn btn-ghost" id="copyBtn" type="button">Copy address</button>
       </div>
     </div>
@@ -467,7 +473,8 @@ details p{margin:0;padding:0 0 16px}
 </main>
 
 <footer class="wrap">
-  <span>Old Vine Studio · Temecula, California · OldVineStudio@gmail.com</span>
+  <span>Old Vine Studio · Temecula, California · <a href="mailto:quote@oldvinefrontdesk.com?subject=Quote%20request%20-%20AI%20Front%20Desk%20preview" style="color:inherit">quote@oldvinefrontdesk.com</a></span>
+  <span class="foot-links"><a href="/">Old Vine Studio home</a><a href="/front-desk/">AI Front Desk</a><a href="/front-desk/#policies">AI Front Desk policies</a><a href="/privacy/">Website privacy</a></span>
   <span>Calls and numbers on this page are examples.</span>
 </footer>
 
@@ -504,7 +511,7 @@ details p{margin:0;padding:0 0 16px}
   function priceLine(job, tr){ var r = R(); tr = tr || {}; var pro = tr.pro || "the tech", fee = tr.fee || "service call"; return r.quote ? "Our " + fee + " is $" + r.fee + ", and " + pro + " gives you the full price for " + job + " before any work starts." : cap(pro) + " looks at it first and gives you the full price before any work starts, so there are no surprises."; }
   function emergencyLine(onCall){ return R().transfer ? "I'm connecting you to " + (onCall || "our on-call tech") + " now. If the call drops, they'll call you right back at this number." : "I've marked this urgent and alerted the owner right now. They'll call you back as soon as they can."; }
   function rushLine(){ return "I can't promise a time, but I've marked this as a priority request and sent it to " + (owner() || "the owner") + " now. They'll text you back shortly with what's possible."; }
-  /* Greeting: the one place every trade's AI disclosure and recording notice is worded. The owner is reviewing it, so change it only here. */
+  /* Greeting: the one place every trade's AI disclosure and recording notice is worded. */
   function poss(n){ return /s$/i.test(n) ? n + "'" : n + "'s"; }
   function greet(extra){ var b = biz(); var g = "Thanks for calling " + b + ". This is " + poss(b) + " AI assistant. This call is recorded. " + (extra || "How can I help?"); if(R().spanish) g += " Para español, diga “español”."; return g; }
 
@@ -1262,7 +1269,7 @@ details p{margin:0;padding:0 0 16px}
     var o = owner(), sc = scen();
     $("mailTo").textContent = o ? o + " at " + biz() : biz();
     $("mailSubj").textContent = "Since your last summary at " + biz() + ": " + sc.length + " calls that need your team";
-    $("mailHello").textContent = "Good morning" + (o ? ", " + o : "") + ". The front desk answered every call your team couldn't get to. Here's what needs a time from you.";
+    $("mailHello").textContent = "Good morning" + (o ? ", " + o : "") + ". The front desk answered the calls your team forwarded and couldn't get to. Here's what needs a time from you.";
     $("mailStats").innerHTML = "<span>Calls answered <b>" + (sc.length + 3) + "</b></span><span>Job requests <b>" + sc.length + "</b></span><span>Spam &amp; sales calls screened <b>2</b></span><span>Out of area <b>1</b></span><span>Missed <b>0</b></span>";
     var tb = $("mailRows"); tb.textContent = "";
     sc.forEach(function(s){
